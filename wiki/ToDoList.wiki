@@ -1,6 +1,6 @@
 #summary List of features or other aspects that need implementation
 
-= Introduction =
+== Introduction ==
 
 This page will, in the future, hold a list of things that need to be done.
 
