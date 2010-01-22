@@ -10,7 +10,7 @@
 	// Declare array
 	$config = array();
 
-	// Set values
+	// Set these values to your own
 	$config['dbHost']	= "localhost";
 	$config['dbPort']	= '3306';
 	$config['dbName']	= "voting";
