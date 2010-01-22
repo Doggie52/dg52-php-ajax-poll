@@ -1,0 +1,51 @@
+/*******************************************************************************
+	Filename		: styles.css
+
+	Created			: 03 August 2008 (18:03:06)
+	Created by		: Douglas Stridsberg
+
+	Last Updated	: 14 August 2008 (20:45:05)
+	Updated by		: Douglas Stridsberg
+
+	Comments		: 
+*******************************************************************************/	
+body {
+	font-family: Verdana;
+	font-size: 75%;
+	color: white;
+	margin: 0px;
+	background-color: #3b3b64;
+}
+
+.container {
+	width: 800px;
+	height: 500px;
+	margin: auto;
+	padding: 0px;
+	background-image: url('bg.png');
+}
+
+.main {
+  padding: 25px;
+}
+
+.main h2 {
+	color: white;
+	text-align: right;
+}
+
+.main ul, li {
+	list-style-type: none;
+	font-size: 50%;
+}
+
+.main a {
+	color: grey;
+	border-bottom: 1px dashed grey;
+	text-decoration: none;
+}
+
+.main a:hover {
+	color: grey;
+	border-bottom: 1px solid grey;
+}
