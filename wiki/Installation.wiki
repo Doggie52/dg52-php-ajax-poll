@@ -1,0 +1,15 @@
+#summary How to install a copy of dG52 PHP and AJAX Poll
+
+== Introduction ==
+
+This page will cover how to install a fresh copy of dG52 PHP and AJAX Poll software on your webserver, and how to configure it.
+
+
+= Requirements =
+_to-do_
+
+= Installation =
+_to-do_
+
+= Conclusion =
+_to-do_
