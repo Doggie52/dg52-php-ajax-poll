@@ -1,4 +1,11 @@
 <?php
+	/*
+		dG52 PHP and AJAX Poll software
+
+		Author: Douglas Stridsberg
+			Email: doggie52@gmail.com
+			URL: www.douglasstridsberg.com
+	*/
 
 	// Declare array
 	$config = array();

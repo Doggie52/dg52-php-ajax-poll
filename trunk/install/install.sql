@@ -1,3 +1,11 @@
+	/*
+		dG52 PHP and AJAX Poll software
+
+		Author: Douglas Stridsberg
+			Email: doggie52@gmail.com
+			URL: www.douglasstridsberg.com
+	*/
+	
 -- phpMyAdmin SQL Dump
 -- version 2.11.8.1deb5+lenny3
 -- http://www.phpmyadmin.net
