@@ -1,0 +1,10 @@
+#summary List of authors currently contributing to this project.
+
+= Introduction =
+
+This page holds a list of current contributors and authors and how to get in touch with them.
+
+
+= Manager =
+
+Douglas Stridsberg
