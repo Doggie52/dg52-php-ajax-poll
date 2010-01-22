@@ -7,4 +7,11 @@ This page will, in the future, hold a list of things that need to be done.
 
 = List =
 
-Nothing is to be done just yet.
+ * Styling changes
+  * Admin-panel
+   * Sleeker navigation, using images
+  * Main
+   * Re-do all UI using template function
+ * Fixes
+  * Navigation inside the admin-panel must be worked on
+   * Let user select what poll to edit
