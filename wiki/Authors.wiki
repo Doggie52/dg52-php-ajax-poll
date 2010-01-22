@@ -5,7 +5,7 @@
 This page holds a list of current contributors and authors and how to get in touch with them.
 
 
-= Manager =
+== Manager ==
 
 Douglas Stridsberg
 
