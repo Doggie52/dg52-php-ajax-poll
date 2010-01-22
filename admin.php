@@ -56,6 +56,13 @@ include("includes/class_admin.php");
 		// Output the adminpanel header
 			echo "<h1>Welcome to the Control Panel!</h1>\n";
 			echo "<small>The time is ".date(DATE_RFC822)." GMT.\n<br />\nYour adminkey for this IP: ".$_SESSION['adminKey']."</small>\n";
+		// Output list of links	
+			echo "<ul>\n
+				<li><a href=\"admin.php\">Home</a></li>
+				<li><a href=\"?display=add\">Add poll question</a></li>
+				<li><a href=\"?display=edit?id=1\">Edit poll question</a></li>
+				<li><a href=\"?display=delete?id=1\">Delete poll question</a></li>
+				</ul>\n";
 
 	
 		// Start the displayswitch if the variable is available
