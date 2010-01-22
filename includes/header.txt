@@ -1,2 +1,5 @@
+<html>
+<head>
 %JAVASCRIPT% %CSS%
-
+</head>
+<body>
