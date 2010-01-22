@@ -46,12 +46,23 @@ include("includes/class_admin.php");
 	
 		// Create the admin-object
 		$admin = new admin();
+		
+		// Output the HTML header and add the CSS, java and title
+		$outputHeader = incFile("includes/header.txt");
+		$outputHeader = ereg_replace("%TITLE%", "Poll Administration: Home", $outputHeader);
+		$outputHeader = ereg_replace("%CSS%", incFile("includes/styles.css"), $outputHeader);
+		$outputHeader = ereg_replace("%JAVASCRIPT%", incFile("ajax.js"), $outputHeader);
+			echo $outputHeader;
+		// Output the adminpanel header
+			echo "<h1>Welcome to the Control Panel!</h1>\n";
+			echo "<small>The time is ".date(DATE_RFC822)." GMT.\n<br />\nYour adminkey for this IP: ".$_SESSION['adminKey']."</small>\n";
+
 	
 		// Start the displayswitch if the variable is available
 		if($display){
 			switch($display){
 				case "add":
-					$admin->form("add");
+					$admin->form("add", '0');
 				break;
 				case "edit":
 					$admin->form("edit", $id);
@@ -79,18 +90,11 @@ include("includes/class_admin.php");
 			}
 		// Else start the default adminmenu
 		}else{
-			// Output the HTML header and add the CSS, java and title
-			$outputHeader = incFile("includes/header.txt");
-			$outputHeader = ereg_replace("%TITLE%", "Poll Administration: Home", $outputHeader);
-			$outputHeader = ereg_replace("%CSS%", incFile("includes/styles.css"), $outputHeader);
-			$outputHeader = ereg_replace("%JAVASCRIPT%", incFile("ajax.js"), $outputHeader);
-				echo $outputHeader;
-			// Output the adminpanel header
-			echo "<h1>Welcome to the Control Panel!</h1>\n";
-			echo "<small>The time is ".date(DATE_RFC822)." GMT.\n<br />\nYour adminkey for this IP: ".$_SESSION['adminKey']."</small>\n";
-			// Output the HTML footer
-			echo incFile("includes/footer.txt");
+
 		}
+		
+		// Output the HTML footer
+		echo incFile("includes/footer.txt");
 
 	// Closes the connection
 	$DB->close();
