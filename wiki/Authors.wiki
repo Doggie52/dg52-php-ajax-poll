@@ -8,3 +8,5 @@ This page holds a list of current contributors and authors and how to get in tou
 = Manager =
 
 Douglas Stridsberg
+*Email: doggie52@gmail.com
+*URL: [http://douglasstridsberg.com]
