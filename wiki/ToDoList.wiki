@@ -12,6 +12,7 @@ This page will, in the future, hold a list of things that need to be done.
    * Sleeker navigation, using images
   * Main
    * Re-do all UI, making it use a simple and easy-to-use template system
+   * Implement a graphical view of the results of a poll (using flash? gd?)
  * Fixes
   * Navigation inside the admin-panel must be worked on
    * Let user select what poll to edit
