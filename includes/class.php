@@ -99,15 +99,15 @@ class poll extends DB {
 					echo "<ul>";
 					echo "<li>".$question['a1']." - ".$a1."%</li>";
 					echo "<li>".$question['a2']." - ".$a2."%</li>";
-					  if ($question['a3']){
-					  echo "<li>".$question['a3']." - ".$a3."%</li>";
-					  }
-					  if ($question['a4']){
-					  echo "<li>".$question['a4']." - ".$a4."%</li>";
-					  }
-					  if ($question['a5']){
-					  echo "<li>".$question['a5']." - ".$a5."%</li>";
-					  }
+					if ($question['a3']){
+						echo "<li>".$question['a3']." - ".$a3."%</li>";
+					}
+					if ($question['a4']){
+						echo "<li>".$question['a4']." - ".$a4."%</li>";
+					}
+					if ($question['a5']){
+						echo "<li>".$question['a5']." - ".$a5."%</li>";
+					}
 					echo "</ul>";
 					echo "<p>You can revote after 24 hours!</p>";
 	}
