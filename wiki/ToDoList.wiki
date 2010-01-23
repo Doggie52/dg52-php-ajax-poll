@@ -11,7 +11,8 @@ This page will, in the future, hold a list of things that need to be done.
   * Admin-panel
    * Sleeker navigation, using images
   * Main
-   * Re-do all UI using template function
+   * Re-do all UI, making it use a simple and easy-to-use template system
  * Fixes
   * Navigation inside the admin-panel must be worked on
    * Let user select what poll to edit
+   * Support multiple polls, making use of the 'show' boolean
