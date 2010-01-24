@@ -14,7 +14,7 @@ include("includes/class_admin.php");
 	// Creates the DB connection
 	$DB = new DB();
 	$DB->connect();
-  
+
 		// Creates the session
 		$session = new session();
 	
