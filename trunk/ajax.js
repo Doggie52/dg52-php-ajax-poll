@@ -9,20 +9,20 @@
 var xmlHttp
 
 function goPage(str)
-{ 
+{
 	xmlHttp=GetXmlHttpObject();
 	if (xmlHttp==null)
 	{
 		alert ("Your browser does not support AJAX!");
 		return;
-	}	   	
+	}
 	xmlHttp.onreadystatechange=switchPage;
 	xmlHttp.open("GET", str, true);
-	xmlHttp.send(null); 
+	xmlHttp.send(null);
 }
 
 function placeVote()
-{ 
+{
 	xmlHttp=GetXmlHttpObject();
 	if (xmlHttp==null)
 	{
@@ -32,24 +32,24 @@ function placeVote()
 	var id = document.getElementById('id').value;
 	var vote = document.getElementById('vote').value;
 	var queryString = "?id=" + id + "&vote=" + vote;
-	  	
+	
 	xmlHttp.onreadystatechange=showResult;
 	xmlHttp.open("GET", "vote.php" + queryString, true);
 	xmlHttp.send(null); 
 }
 
 function showResult() 
-{ 
+{
 	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-	{ 
+	{
 		document.getElementById("resultDiv").innerHTML=xmlHttp.responseText;
 	}
 }
 
 function switchPage() 
-{ 
+{
 	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-	{ 
+	{
 		document.getElementById("mainDiv").innerHTML=xmlHttp.responseText;
 	}
 }
