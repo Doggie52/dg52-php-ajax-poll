@@ -1,0 +1,17 @@
+#summary Description of how the template class will look.
+
+== Introduction ==
+
+Below I will outline, for both yours' and my sake, generally how I will design the class controlling templates and the UI and how the structure of these will look.
+
+The reason I am adding a template class is simply because I feel there needs to be an easy way to change the appearance of the poll - as it looks right now it's all stored inside PHP-files making editing and styling an enormous hassle.
+
+The final purpose with the class is to make the poll entirely style-able.
+
+= General Structure =
+
+== `class Template` ==
+This class will hold all functions, references to template files and configuration files and the variables.
+
+== `.tmpl` Files ==
+These files will contain all the HTML code that builds the user interface, as well as variables (in the following form: `%VARIABLES`) that are replaced with definitions upon loading the template file.
