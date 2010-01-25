@@ -10,8 +10,26 @@ The final purpose with the class is to make the poll entirely style-able.
 
 = General Structure =
 
-== `class Template` ==
+== Template Class ==
 This class will hold all functions, references to template files and configuration files and the variables.
 
-== `.tmpl` Files ==
-These files will contain all the HTML code that builds the user interface, as well as variables (in the following form: `%VARIABLES`) that are replaced with definitions upon loading the template file.
+=== Reference File or "Dictionary" ===
+This file will hold a large array of variables and what they "translate" to, if you will. The file itself will be the only file, apart from the _.tmpl_ files, that the user will need to edit.
+
+== _.tmpl_ Files ==
+These files will contain all the HTML code that builds the user interface, as well as variables (in the following form: `%VARIABLE%`) that are replaced with definitions upon loading the template file.
+Here is an example of what it could look like:
+{{{
+<html>
+<head><title>%TITLE%</title></head>
+<body>
+<h1>%WELCOMEMESSAGE%</h1>
+<h3>%POLLQUESTION%</h3>
+<select>
+<option>%POLLANSWER1%</option>
+<option>%POLLANSWER2%</option>
+</select>
+<h4>%FOOTERMESSAGE%</h4>
+</body>
+</html>
+}}}
