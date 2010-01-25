@@ -69,7 +69,7 @@ include("includes/class_admin.php");
 		if($display){
 			switch($display){
 				case "add":
-					$admin->form("add", '0');
+					$admin->form("add");
 				break;
 				case "edit":
 					$admin->form("edit", $id);
