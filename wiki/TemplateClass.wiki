@@ -36,3 +36,4 @@ Here is an example of what it could look like:
 </body>
 </html>
 }}}
+These files will be stored in a separate folder, perhaps _/includes/templates_ in order to ease editing and maintaining. Also, a user will be allowed to create his/her own subdirectories for even more control and personalization.
