@@ -9,24 +9,24 @@
 
 // Includes
 include("includes/class.php");
+include("includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
 	
-	// Creates the default poll
-	$poll = new poll();
-
-		// Output the HTML header and add the CSS, java and title
-		$outputHeader = incFile("includes/header.txt");
-		$outputHeader = ereg_replace("%TITLE%", "Poll Home", $outputHeader);
-		$outputHeader = ereg_replace("%CSS%", incFile("includes/styles.css"), $outputHeader);
-		$outputHeader = ereg_replace("%JAVASCRIPT%", incFile("ajax.js"), $outputHeader);
-		echo $outputHeader;
-	
-			// Displays the polls and vote-options
-			$poll->displayVote();
+		// Creates the default poll
+		$poll = new poll();
 		
-		// Output the HTML footer
-		echo incFile("includes/footer.txt");
+		// Creates the template parser
+		$template = new template();
+	
+			// Output the header template
+			$template->printTemplate("header");
+		
+				// Displays the polls and vote-options
+				$poll->displayVote();
+			
+			// Output the footer template
+			$template->printTemplate("footer");
 
 ?>
