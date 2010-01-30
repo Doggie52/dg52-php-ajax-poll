@@ -14,12 +14,12 @@ The final purpose with the class is to make the poll entirely style-able.
 This class will hold all functions, references to template files and configuration files and the variables.
 
 === General workings ===
-The class will require the reference file and load its array into a variable with a scope of the entire class. There will be one function to check for the  _.tmpl_ file's existence, one to load it, one to replace the _%VARIABLES%_ with the matching translations and one to display the resulting content. These `private` functions will then be wrapped into a `public` function which calls all of them in order.
+The class will require the reference file and load its array into a variable with a scope of the entire class. There will be one function to check for the  _.tpl_ file's existence, one to load it, one to replace the _%VARIABLES%_ with the matching translations and one to display the resulting content. These `private` functions will then be wrapped into a `public` function which calls all of them in order.
 
 === Reference File or "Dictionary" ===
-This file will hold a large array of variables and what they "translate" to, if you will. The file itself will be the only file, apart from the _.tmpl_ files, that the user will need to edit.
+This file will hold a large array of variables and what they "translate" to, if you will. The file itself will be the only file, apart from the _.tpl_ files, that the user will need to edit.
 
-== _.tmpl_ Files ==
+== _.tpl_ Files ==
 These files will contain all the HTML code that builds the user interface, as well as variables (in the following form: `%VARIABLE%`) that are replaced with definitions upon loading the template file.
 Here is an example of what it could look like:
 {{{
