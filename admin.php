@@ -13,7 +13,6 @@ include("includes/class_admin.php");
 
 	// Creates the DB connection
 	$DB = new DB();
-	$DB->connect();
 
 		// Creates the session
 		$session = new session();
@@ -102,8 +101,5 @@ include("includes/class_admin.php");
 		
 		// Output the HTML footer
 		echo incFile("includes/footer.txt");
-
-	// Closes the connection
-	$DB->close();
 
 ?>

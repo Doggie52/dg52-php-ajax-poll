@@ -12,7 +12,6 @@ include("includes/class.php");
 
 	// Creates the DB connection
 	$DB = new DB();
-	$DB->connect();
 	
 	// Creates the default poll
 	$poll = new poll();
@@ -29,8 +28,5 @@ include("includes/class.php");
 		
 		// Output the HTML footer
 		echo incFile("includes/footer.txt");
-
-	// Closes the connection
-	$DB->close();
 
 ?>
