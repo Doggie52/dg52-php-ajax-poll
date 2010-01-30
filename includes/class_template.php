@@ -53,6 +53,9 @@ class template {
 	
 	public function printTemplate($templateName){
 	// Combines the previous functions into one, public function that renders the template
+		$this->checkExist($templateName);
+		$output = $this->replaceTemplateVars($this->loadTemplate($templateName));
+		echo $output;
 	}
 
 }
