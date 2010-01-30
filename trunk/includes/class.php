@@ -42,12 +42,15 @@ class DB {
 	
 	// Class constructor - connect to the database
 	function __construct() {
+		// Include database-config
+		require('includes/config.php');
 
-	// Include database-config
-	require('includes/config.php');
-		
-	mysql_connect($config['dbHost'], $config['dbUser'], $config['dbPassw']) or die(mysql_error());
-		mysql_select_db($config['dbName']) or die(mysql_error());
+		mysql_connect(
+			$config['dbHost'],
+			$config['dbUser'],
+			$config['dbPassw']
+		) or die(mysql_error());
+			mysql_select_db($config['dbName']) or die(mysql_error());
 	}
 	
 	// A normal query, for DELETE and UPDATE along with other stuff
