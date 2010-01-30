@@ -3,13 +3,17 @@
 class template {
 
 	function __construct(){
-		// Checks for the 'templates'-folder's existence
+		// Checks for the 'templates'-folder's existence, as well as template_dictionary's existence
 		if(!file_exists("templates")){
 			echo "Fatal error!
 			<code>templates</code> directory does not exist!";
 			exit;
 		}
-		require "includes/template_dictionary.php";
+		if(!file_exists("includes/template_dictionary.php")){
+			echo "Fatal error!
+			<code>template_dictionary.php</code> file does not exist!";
+			exit;
+		}
 	}
 
 	private function checkExist($templateName){
@@ -32,13 +36,16 @@ class template {
 		}
 	}
 
-	private function replaceTemplateVars($templateName, $dictionary){
+	private function replaceTemplateVars($templateName){
 	// Replaces variables in $templateName with those found in $dictionary
 	// Tutorial used: http://www.php.net/manual/en/function.str-replace.php#95198
 
 		// Declare arrays
 		$varArray			= array();
 		$translatedArray	= array();
+		
+		// Include dictionary
+		require "includes/template_dictionary.php";
 
 		// For each dictionary entry, split the variable and the translation into two arrays
 		foreach($dictionary as $b => $a){
