@@ -45,7 +45,7 @@ class template {
 		$translatedArray	= array();
 		
 		// Include dictionary
-		require "includes/template_dictionary.php";
+		require("includes/template_dictionary.php");
 
 		// For each dictionary entry, split the variable and the translation into two arrays
 		foreach($dictionary as $b => $a){

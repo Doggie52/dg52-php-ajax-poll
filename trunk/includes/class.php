@@ -43,7 +43,7 @@ class DB {
 	// Class constructor - connect to the database
 	function __construct() {
 		// Include database-config
-		require('includes/config.php');
+		require("includes/config.php");
 
 		mysql_connect(
 			$config['dbHost'],

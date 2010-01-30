@@ -1,7 +1,8 @@
 <html>
 <head>
 <title>%TITLE%</title>
-%JAVASCRIPT% %CSS%
+%JAVASCRIPT%
+%CSS%
 </head>
 <body>
 <div class="container">

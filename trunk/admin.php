@@ -10,6 +10,7 @@
 // Includes
 include("includes/class.php");
 include("includes/class_admin.php");
+include("includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
