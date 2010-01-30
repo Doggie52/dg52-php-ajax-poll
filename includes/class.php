@@ -44,7 +44,7 @@ class DB {
 	function connect() {
 
 	// Include database-config
-	include('includes/config.php');
+	require('includes/config.php');
 		
 	mysql_connect($config['dbHost'], $config['dbUser'], $config['dbPassw']) or die(mysql_error());
 		mysql_select_db($config['dbName']) or die(mysql_error());
