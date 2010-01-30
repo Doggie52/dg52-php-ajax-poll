@@ -121,15 +121,16 @@ class poll extends DB {
 				echo "<select id=\"vote\">";
 				echo "<option value=\"a1\">".$questions['a1']."</option>";
 				echo "<option value=\"a2\">".$questions['a2']."</option>";
-				  if ($questions['a3']){
-				  echo "<option value=\"a3\">".$questions['a3']."</option>";
-				  }
-				  if ($questions['a4']){
-				  echo "<option value=\"a4\">".$questions['a4']."</option>";
-				  }
-				  if ($questions['a5']){
-				  echo "<option value=\"a5\">".$questions['a5']."</option>";
-				  }
+					// If extra answers are available, display
+					if ($questions['a3']){
+						echo "<option value=\"a3\">".$questions['a3']."</option>";
+					}
+					if ($questions['a4']){
+						echo "<option value=\"a4\">".$questions['a4']."</option>";
+					}
+					if ($questions['a5']){
+						echo "<option value=\"a5\">".$questions['a5']."</option>";
+					}
 				echo "</select>";
 				echo "<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />";
 				echo "</p></form>";
@@ -141,14 +142,14 @@ class poll extends DB {
 	function votePoll($answer_column, $question_id) {
 		// Check for a cookie
 		if ($_COOKIE['voted']==1){
-		  echo "<p>You have already voted within the past 24 hours!</p>";
+			echo "<p>You have already voted within the past 24 hours!</p>";
 		}else{
 		// The cookie is not set, continue
 		
 			// Check for invalid stuff
 			$answer_array = array("a1", "a2", "a3", "a4", "a5");
 			if (!in_array($answer_column, $answer_array)){
-			  echo("<p>Invalid answer!</p>");
+				echo("<p>Invalid answer!</p>");
 			}else{
 			// The answername is there, continue
 			
