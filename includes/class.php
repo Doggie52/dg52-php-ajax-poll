@@ -46,14 +46,8 @@ class DB {
 	// Include database-config
 	include('includes/config.php');
 		
-		// Set vars
-		$this->dbHost 		= $config['dbHost'];
-		$this->dbUser 		= $config['dbUser'];
-		$this->dbPassword 	= $config['dbPassw'];
-		$this->dbName 		= $config['dbName'];
-		
-		mysql_connect($this->dbHost, $this->dbUser, $this->dbPassword) or die(mysql_error());
-		mysql_select_db($this->dbName) or die(mysql_error());
+	mysql_connect($config['dbHost'], $config['dbUser'], $config['dbPassw']) or die(mysql_error());
+		mysql_select_db($config['dbName']) or die(mysql_error());
 	}
 	
 	// Close the connection

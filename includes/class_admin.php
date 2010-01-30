@@ -60,7 +60,7 @@ class session extends DB {
 class admin extends DB{
 
 	// Displays the form for various things
-	function form($type[, $id]){
+	function form($type, $id){
 		switch($type){
 		case "add":
 			// Initialize the add-form
