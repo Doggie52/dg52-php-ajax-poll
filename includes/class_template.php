@@ -50,9 +50,9 @@ class template {
 		$translatedTemplate = str_replace($varArray, $translatedArray, $templateName);
 		return $translatedTemplate;
 	}
-
-	private function outputTemplate($templateName){
-	// Outputs the given $templateName with the exchanged variables
+	
+	public function printTemplate($templateName){
+	// Combines the previous functions into one, public function that renders the template
 	}
 
 }
