@@ -40,19 +40,14 @@ function incFile($filename) {
 // Database class
 class DB {
 	
-	// Connect or die
-	function connect() {
+	// Class constructor - connect to the database
+	function __construct() {
 
 	// Include database-config
 	require('includes/config.php');
 		
 	mysql_connect($config['dbHost'], $config['dbUser'], $config['dbPassw']) or die(mysql_error());
 		mysql_select_db($config['dbName']) or die(mysql_error());
-	}
-	
-	// Close the connection
-	function close() {
-		mysql_close();
 	}
 	
 	// A normal query, for DELETE and UPDATE along with other stuff

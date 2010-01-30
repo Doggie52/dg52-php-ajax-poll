@@ -12,7 +12,6 @@ include("includes/class.php");
 
 	// Creates the DB connection
 	$DB = new DB();
-	$DB->connect();
 
 		// Creates the default poll
 		$poll = new poll();
