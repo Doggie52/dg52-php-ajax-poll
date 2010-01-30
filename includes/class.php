@@ -8,33 +8,35 @@
 	*/
 
 function secure($string) {
-	$string = strip_tags($string);
-	$string = htmlspecialchars($string);
-	$string = trim($string);
-	$string = stripslashes($string);
-	$string = mysql_real_escape_string($string);
+	// Secures $string using various methods
+		$string = strip_tags($string);
+		$string = htmlspecialchars($string);
+		$string = trim($string);
+		$string = stripslashes($string);
+		$string = mysql_real_escape_string($string);
 	return $string;
 }
 
 function incFile($filename) {
-	// Get the extension
-	$filename = strtolower($filename);
-	$exts = split("[/\\.]", $filename);
-	$n = count($exts)-1;
-	$exts = $exts[$n];
-	
-		// Return different depending on the extension
-		if ($exts=="css"){
-			return "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"".$filename."\" />";
-		}elseif ($exts=="js"){
-			return "<script type=\"text/javascript\" src=\"".$filename."\"></script>";
-		}elseif ($exts=="txt"){
-			$myFile = $filename;
-			$fopen = fopen($myFile, 'r');
-			$output = fread($fopen, filesize($myFile));
-			fclose($fopen);
-			return $output;
-		}
+	// Includes a file based on its extension
+		// Get the extension
+		$filename = strtolower($filename);
+		$exts = split("[/\\.]", $filename);
+		$n = count($exts)-1;
+		$exts = $exts[$n];
+		
+			// Return different depending on the extension
+			if ($exts=="css"){
+				return "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"".$filename."\" />";
+			}elseif ($exts=="js"){
+				return "<script type=\"text/javascript\" src=\"".$filename."\"></script>";
+			}elseif ($exts=="txt"){
+				$myFile = $filename;
+				$fopen = fopen($myFile, 'r');
+				$output = fread($fopen, filesize($myFile));
+				fclose($fopen);
+				return $output;
+			}
 }
 
 // Database class
