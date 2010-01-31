@@ -14,6 +14,9 @@ include("includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
+	
+		// Creates the template parser
+		$template = new template();
 
 		// Creates the session
 		$session = new session();
@@ -26,16 +29,13 @@ include("includes/class_template.php");
 		
 				// Shows the form if the adminkey is invalid
 				if($session->adminKey==FALSE){
-						// Output the HTML header and add the CSS, java and title
-						$outputHeader = incFile("includes/header.txt");
-						$outputHeader = ereg_replace("%TITLE%", "Poll Admin: Log In", $outputHeader);
-						$outputHeader = ereg_replace("%CSS%", incFile("includes/styles.css"), $outputHeader);
-						$outputHeader = ereg_replace("%JAVASCRIPT%", incFile("ajax.js"), $outputHeader);
-							echo $outputHeader;
+						// Output the header template
+						$template->printTemplate("admin/header");
+						
 						$session->formLogin("admin.php");
 						
-						// Output the HTML footer
-						echo incFile("includes/footer.txt");
+						// Output the footer template
+						$template->printTemplate("admin/footer");
 					exit;
 				}
 
@@ -47,13 +47,10 @@ include("includes/class_template.php");
 		// Create the admin-object
 		$admin = new admin();
 		
-		// Output the HTML header and add the CSS, java and title
-		$outputHeader = incFile("includes/header.txt");
-		$outputHeader = ereg_replace("%TITLE%", "Poll Administration: Home", $outputHeader);
-		$outputHeader = ereg_replace("%CSS%", incFile("includes/styles.css"), $outputHeader);
-		$outputHeader = ereg_replace("%JAVASCRIPT%", incFile("ajax.js"), $outputHeader);
-			echo $outputHeader;
-		// Output the adminpanel header
+			// Output the header template
+			$template->printTemplate("admin/header");
+						
+			// Output the adminpanel header
 			echo "<h1>Welcome to the Control Panel!</h1>\n";
 			echo "<small>The time is ".date(DATE_RFC822)." GMT.\n<br />\nYour adminkey for this IP: ".$_SESSION['adminKey']."</small>\n";
 		// Output list of links	
@@ -100,7 +97,7 @@ include("includes/class_template.php");
 
 		}
 		
-		// Output the HTML footer
-		echo incFile("includes/footer.txt");
+	// Output the footer template
+	$template->printTemplate("admin/footer");
 
 ?>
