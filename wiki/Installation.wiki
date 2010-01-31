@@ -6,7 +6,9 @@ This page will cover how to install a fresh copy of dG52 PHP and AJAX Poll softw
 
 
 = Requirements =
-_to-do_
+ * Webserver of choice (Apache, LightTPD, or others - must however support the features listed below)
+ * PHP (version greater than 5.2 preferably)
+ * MySQL (version greater than 5.0 preferably)
 
 = Installation =
 _to-do_
