@@ -54,10 +54,10 @@ class template {
 		// Include dictionary
 		require("includes/template_dictionary.php");
 
-		// For each dictionary entry, split the variable and the translation into two arrays
-		foreach($dictionary as $b => $a){
-			$varArray[] = "%".$b."%";
-			$translatedArray[] = $a;
+		// For each dictionary entry, split the variable and the translation into two arrays, before and after
+		foreach($dictionary as $before => $after){
+			$varArray[] = "%".$before."%";
+			$translatedArray[] = $after;
 		}
 
 		// Replaces the variables with their translated values

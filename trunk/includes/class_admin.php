@@ -36,15 +36,6 @@ class session extends DB {
 		unset($_SESSION['adminKey']);
 	}
 	
-	// Display the login-form
-	function formLogin($action){
-		echo "<form name=\"login\" id=\"login\" method=\"POST\" action=\"".$action."\">";
-		echo "<p>Username: <input type=\"text\" name=\"username\" /></p>";
-		echo "<p>Password: <input type=\"password\" name=\"password\" /></p>";
-		echo "<p><input type=\"submit\" value=\"Log-in\" name=\"login\" /></p>";
-		echo "</form>";
-	}
-	
 	// Handle the log-in:ing
 	function handleLogin(){
 		// Has the form been processed?
