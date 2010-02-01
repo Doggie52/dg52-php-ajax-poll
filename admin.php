@@ -32,7 +32,8 @@ include("includes/class_template.php");
 						// Output the header template
 						$template->printTemplate("admin/header");
 						
-						$session->formLogin("admin.php");
+						// Output the login-form
+						$template->printTemplate("admin/loginform");
 						
 						// Output the footer template
 						$template->printTemplate("admin/footer");
