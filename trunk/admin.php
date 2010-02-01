@@ -53,7 +53,7 @@ include("includes/class_template.php");
 			// Output the adminpanel header
 			echo "<h1>Welcome to the Control Panel!</h1>\n";
 			echo "<small>The time is ".date(DATE_RFC822)." GMT.\n<br />\nYour adminkey for this IP: ".$_SESSION['adminKey']."</small>\n";
-		// Output list of links	
+			// Output list of links	
 			echo "<ul>\n
 				<li><a href=\"admin.php\">Home</a></li>
 				<li><a href=\"?display=add\">Add poll question</a></li>
@@ -75,7 +75,7 @@ include("includes/class_template.php");
 					$admin->form("delete", $id);
 				break;
 				default:
-					echo "<p>Something went wrong!</p>";
+					echo "<p>Undefined display variable!</p>";
 			}
 		// Else if the handle variable is available start the handleswitch
 		}elseif($handle){
@@ -90,11 +90,8 @@ include("includes/class_template.php");
 					$admin->handle("delete", $id);
 				break;
 				default:
-					echo "<p>Something went wrong!</p>";
+					echo "<p>Undefined handle variable!</p>";
 			}
-		// Else start the default adminmenu
-		}else{
-
 		}
 		
 	// Output the footer template
