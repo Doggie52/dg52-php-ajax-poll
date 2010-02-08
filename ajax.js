@@ -43,6 +43,8 @@ function showResult()
 	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	{
 		document.getElementById("resultDiv").innerHTML=xmlHttp.responseText;
+	} else {
+		document.getElementById("resultDiv").innerHTML="<img src=\"images/loading.gif\" />";
 	}
 }
 
@@ -51,6 +53,8 @@ function switchPage()
 	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	{
 		document.getElementById("mainDiv").innerHTML=xmlHttp.responseText;
+	} else {
+		document.getElementById("resultDiv").innerHTML="<img src=\"images/loading.gif\" />";
 	}
 }
 
@@ -59,12 +63,12 @@ function GetXmlHttpObject()
 	var xmlHttp=null;
 	try
 	{
-		// Firefox, Opera 8.0+, Safari
+		// Test for Firefox, Opera 8.0+, Safari
 		xmlHttp=new XMLHttpRequest();
 	}
 	catch (e)
 	{
-		// Internet Explorer
+		// Test for two different objects for Internet Explorer
 		try
 		{
 			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
