@@ -11,9 +11,12 @@
 	$dictionary = array(
 		// Main translations
 		"TITLE" => "dG52 PHP and AJAX Poll",
+		"DATE" => date(DATE_RFC822),
 		// HTML-includes
 		"CSS" => incFile("includes/styles.css"),
 		"JAVASCRIPT" => incFile("ajax.js"),
+		// Session-related
+		"ADMINKEY" => $_SESSION['adminKey'],
 		
 		// Misc translations
 		"TEST" => "Test!"
