@@ -1,9 +1,6 @@
 <h1>Welcome to the Control Panel!</h1>
-<small>
-	The time is %DATE% GMT.
-	<br />
-	Your session-key for this IP: %ADMINKEY%.
-</small>
+	<p>The time is %DATE% GMT.</p>
+	<p>Your session-key for this IP: %ADMINKEY%.</p>
 	<ul>
 		<li><a href="admin.php">Home</a></li>
 		<li><a href="?display=add">Add poll question</a></li>
