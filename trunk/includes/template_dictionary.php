@@ -18,9 +18,6 @@
 		"FORMJS" => incFile("form.js"),
 		// Session-related
 		"ADMINKEY" => $_SESSION['adminKey'],
-		
-		// Misc translations
-		"TEST" => "Test!"
 	);
 
 ?>
