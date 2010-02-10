@@ -8,10 +8,14 @@ This page will cover how to install a fresh copy of dG52 PHP and AJAX Poll softw
 = Requirements =
  * Webserver of choice (Apache, LightTPD, or others - must however support the features listed below)
  * PHP (version greater than 5.2 preferably)
- * MySQL (version greater than 5.0 preferably)
+ * MySQL database (version greater than 5.0 preferably)
 
 = Installation =
-_to-do_
+ # Using an [http://codertools.wordpress.com/2009/03/24/svn-subversion-clients-and-other-tools/ SVN-client of choice], check out the latest revision of the poll to a directory of choice, using this address: `http://dg52-php-ajax-poll.googlecode.com/svn/trunk/`
+ # Copy the files you just checked out to your webserver. Again, this can be done in a directory of choice.
+ # Using an [http://www.google.com/search?q=mysql+clients MySQL client of choice] apply the `install/install.sql` file to your MySQL database.
 
-= Conclusion =
+You're done!
+
+= Configuration =
 _to-do_
