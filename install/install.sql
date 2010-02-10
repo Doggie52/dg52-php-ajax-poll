@@ -1,22 +1,11 @@
-	/*
-		dG52 PHP and AJAX Poll software
-
-		Author: Douglas Stridsberg
-			Email: doggie52@gmail.com
-			URL: www.douglasstridsberg.com
-	*/
-	
 -- phpMyAdmin SQL Dump
 -- version 2.11.8.1deb5+lenny3
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 22, 2010 at 07:00 PM
+-- Generation Time: Feb 10, 2010 at 09:21 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6-1+lenny4
---
--- Database import for dG52 PHP and AJAX Poll software.
---
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -64,12 +53,14 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `a4` text,
   `a5` text,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Stores the ID, question, answers and state of visibility. ' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Stores the ID, question, answers and state of visibility. ' AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `questions`
 --
 
+INSERT INTO `questions` (`id`, `show`, `question`, `a1`, `a2`, `a3`, `a4`, `a5`) VALUES
+(1, 1, 'Example question?', 'Example answer!', 'Another example answer!', 'Perhaps yet another example answer!', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91,3 +82,5 @@ CREATE TABLE IF NOT EXISTS `results` (
 -- Dumping data for table `results`
 --
 
+INSERT INTO `results` (`id`, `a1`, `a2`, `a3`, `a4`, `a5`) VALUES
+(1, 0, 0, 0, 0, 0);
