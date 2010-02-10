@@ -1,7 +1,8 @@
 <html>
 	<head>
 		<title>%TITLE%</title>
-		%JAVASCRIPT%
+		%AJAX%
+		%FORMJS%
 		%CSS%
 	</head>
 	<body>

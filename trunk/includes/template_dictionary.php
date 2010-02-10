@@ -14,7 +14,8 @@
 		"DATE" => date(DATE_RFC822),
 		// HTML-includes
 		"CSS" => incFile("includes/styles.css"),
-		"JAVASCRIPT" => incFile("ajax.js"),
+		"AJAX" => incFile("ajax.js"),
+		"FORMJS" => incFile("form.js"),
 		// Session-related
 		"ADMINKEY" => $_SESSION['adminKey'],
 		
