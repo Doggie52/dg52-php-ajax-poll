@@ -7,7 +7,7 @@
 			<td>Password:</td><td><input type="password" name="password" /></td>
 		</tr>
 		<tr>
-			<input type="submit" value="Log-in" name="login" />
+			<td><input type="submit" value="Log-in" name="login" /></td>
 		</tr>
 	</table>
 </form>
