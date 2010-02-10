@@ -48,3 +48,8 @@ body {
 	color: grey;
 	border-bottom: 1px solid grey;
 }
+
+#error {
+	margin: auto;
+	color: red;
+}

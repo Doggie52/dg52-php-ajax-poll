@@ -24,7 +24,7 @@ class session extends DB {
 	
 	// Check if a valid adminkey is present
 	function checkSession(){
-		if($_SESSION['adminKey']==md5($_SERVER['REMOTE_ADDR']."salt")){
+		if($_SESSION['adminKey'] == md5($_SERVER['REMOTE_ADDR']."salt")){
 			$this->adminKey = TRUE;
 		}else{
 			$this->adminKey = FALSE;
@@ -46,32 +46,29 @@ class session extends DB {
 			// Get username and password, hashed, from the database
 			$adminDetails = $this->fetch("SELECT `username`, `password` FROM `admin`");
 				// Check if these are identical to the input
-				if ($adminDetails['username']==md5($_POST['username']) && $adminDetails['password']==md5($_POST['password'])){
+				if ($adminDetails['username'] == md5($_POST['username'])
+					&&
+					$adminDetails['password'] == md5($_POST['password'])
+				){
 					// They are, so set a session
 					$this->setSession();
 				}else{
-					echo "<p>Incorrect username or password!</p>";
+					echo "<div id=\"error\"><p>Incorrect username or password!</p></div>";
 				}
 		}
 	}
 }
 
-class admin extends DB{
+class admin extends DB {
 
 	// Displays the form for various things
 	function form($type, $id){
 		switch($type){
 		case "add":
-			// Initialize the add-form
-			echo "<form name=\"add\" action=\"admin.php?handle=".$type."\">";
-			echo "<p>Poll header: <input type=\"text\" name=\"header\" /></p>";
-			echo "<p>First question: <input type\"text\" name=\"a1\" /></p>";
-			echo "<p>Second question: <input type=\"text\" name=\"a2\" /></p>";
-			echo "<p>Third question: <input type=\"text\" name=\"a3\" /></p>";
-			echo "<p>Fourth question: <input type=\"text\" name=\"a4\" /></p>";
-			echo "<p>Fifth question: <input type=\"text\" name=\"a5\" /></p>";
-			echo "<p><input type=\"submit\" value=\"Add poll\" name=\"submit\" /></p>";
-			echo "</form>";
+			// Make $template object global
+			global $template;
+				// Initialize the add-form
+				$template->printTemplate("admin/addform");
 		break;
 		case "edit":
 			if($id){
@@ -101,7 +98,7 @@ class admin extends DB{
 			}
 		break;
 		default:
-			echo "<p>Something went wrong!</p>";
+			echo "<div id=\"error\"><p>Missing type-variable!</p></div>";
 		}
 	}
 	
@@ -110,13 +107,24 @@ class admin extends DB{
 		switch($type){
 		case "add":
 			// Make sure the form has been submitted with necessary values
-			if($_POST['submit']&&$_POST['question']&&$_POST['a1']&&$_POST['a2']){
+			if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2']){
 				// Add a row to the questions and an empty row to the results
-				$this->query("INSERT INTO `questions` (question, a1, a2, a3, a4, a5) VALUES ('".$_POST['question']."', '".$_POST['a1']."', '".$_POST['a2']."', '".$_POST['a3']."', '".$_POST['a4']."', '".$_POST['a5']."')");
+				$this->query("
+					INSERT INTO `questions`
+						(question, a1, a2, a3, a4, a5)
+					VALUES (
+						'".$_POST['question']."',
+						'".$_POST['a1']."',
+						'".$_POST['a2']."',
+						'".$_POST['a3']."',
+						'".$_POST['a4']."',
+						'".$_POST['a5']."'
+					)
+				");
 				$this->query("INSERT INTO `results` (a1, a2, a3, a4, a5) VALUES ('0', '0', '0', '0', '0')");
 			}else{
 				// Output an error
-				echo "<p>Something was missing or went wrong!</p>";
+				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
 		break;
 		case "edit":
@@ -124,10 +132,22 @@ class admin extends DB{
 			// Make sure the form has been submitted with necessary values
 			if($_POST['submit']){
 				// Update the row
-				$this->query("UPDATE `questions` (question, a1, a2, a3, a4, a5) VALUES ('".$_POST['question']."', '".$_POST['a1']."', '".$_POST['a2']."', '".$_POST['a3']."', '".$_POST['a4']."', '".$_POST['a5']."') WHERE `id` = '".$id."'");
+				$this->query("
+					UPDATE `questions`
+						(question, a1, a2, a3, a4, a5)
+					VALUES (
+						'".$_POST['question']."',
+						'".$_POST['a1']."',
+						'".$_POST['a2']."',
+						'".$_POST['a3']."',
+						'".$_POST['a4']."',
+						'".$_POST['a5']."'
+					)
+					WHERE `id` = '".$id."'
+				");
 			}else{
 				// Output an error
-				echo "<p>Something was missing or went wrong!</p>";
+				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
 		}
 		break;
@@ -135,21 +155,21 @@ class admin extends DB{
 		if($id){
 			// Make sure "delete" was set to 1 (yes)
 			if($_POST['submit']){
-				if($_POST['delete']==1){
+				if($_POST['delete'] == 1){
 					// Delete the row
 					$this->query("DELETE * FROM `questions` WHERE `id` = '".$id."'");
 				}else{
 					// Output an "error"
-					echo "<p>Post was not deleted.</p>";
+					echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
 				}
 			}else{
 				// Output an error
-				echo "<p>Something was missing or went wrong!</p>";
+				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
 		}
 		break;
 		default:
-			echo "<p>Something went wrong!</p>";
+			echo "<div id=\"error\"><p>Missing handle-variable!</p></div>";
 		}
 	}
 }
