@@ -5,14 +5,31 @@
 			Email: doggie52@gmail.com
 			URL: www.douglasstridsberg.com
 	*/
+	
+/*********************************
+		MAIN STYLES
+*********************************/
 
 body {
-	font-family: Verdana;
-	font-size: 75%;
-	color: white;
+	font: 1.5em Georgia;
+	background: #dfd5c5 url('../images/tile.gif');
+	color: #48433d;
 	margin: 0px;
-	background-color: #3b3b64;
 }
+
+.radio {
+	background: url('../images/radio.gif') no-repeat;
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+/*********************************
+		MAIN CONTAINER
+*********************************/
 
 .container {
 	width: 800px;
@@ -20,34 +37,46 @@ body {
 	height: auto;
 	margin: auto;
 	padding: 0px;
-	background-image: url('../images/bg.png');
-	background-repeat: no-repeat;
 }
+
+/*********************************
+		MAIN DIV
+*********************************/
 
 .main {
 	padding: 25px;
 	padding-top: 75px;
 }
 
-.main h2 {
-	color: white;
-}
+	.main h2 {
+		
+	}
+	
+	.main li {
+		list-style-type: none;
+		display: inline;
+	}
+	
+	.main a {
+		color: grey;
+		border-bottom: 1px dashed grey;
+		text-decoration: none;
+	}
+	
+	.main a:hover {
+		color: grey;
+		border-bottom: 1px solid grey;
+	}
 
-.main li {
-	list-style-type: none;
-	display: inline;
+.flower {
+	background: url('../images/flower.png') no-repeat;
+	height: 77px;
+	margin: auto;
 }
-
-.main a {
-	color: grey;
-	border-bottom: 1px dashed grey;
-	text-decoration: none;
-}
-
-.main a:hover {
-	color: grey;
-	border-bottom: 1px solid grey;
-}
+	
+/*********************************
+		ERROR DIV
+*********************************/
 
 #error {
 	margin: auto;
