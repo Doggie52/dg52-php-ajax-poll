@@ -81,6 +81,12 @@ include("includes/class_template.php");
 				case "delete":
 					$admin->handle("delete", $id);
 				break;
+				case "logout":
+					if($session->loseSession()){
+						echo "<meta http-equiv=\"refresh\" content=\"2;url=admin.php\">";
+						echo "<p>Successfully logged out!</p>";
+					}
+				break;
 				default:
 					echo "<p>Undefined handle variable!</p>";
 			}
