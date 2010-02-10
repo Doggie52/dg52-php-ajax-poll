@@ -34,6 +34,7 @@ class session extends DB {
 	// Unset the adminkey
 	function loseSession(){
 		unset($_SESSION['adminKey']);
+		return 1;
 	}
 	
 	// Handle the log-in:ing
@@ -45,11 +46,11 @@ class session extends DB {
 			// Get username and password, hashed, from the database
 			$adminDetails = $this->fetch("SELECT `username`, `password` FROM `admin`");
 				// Check if these are identical to the input
-				if ($adminDetails['username']==md5($_POST['username'])){
-					if ($adminDetails['password']==md5($_POST['password'])){
-						// They are, so set a session
-						$this->setSession();
-					}
+				if ($adminDetails['username']==md5($_POST['username']) && $adminDetails['password']==md5($_POST['password'])){
+					// They are, so set a session
+					$this->setSession();
+				}else{
+					echo "<p>Incorrect username or password!</p>";
 				}
 		}
 	}

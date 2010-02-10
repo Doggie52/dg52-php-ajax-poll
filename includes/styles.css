@@ -21,6 +21,7 @@ body {
 	margin: auto;
 	padding: 0px;
 	background-image: url('bg.png');
+	background-repeat: no-repeat;
 }
 
 .main {
@@ -32,8 +33,9 @@ body {
 	color: white;
 }
 
-.main ul, li {
+.main li {
 	list-style-type: none;
+	display: inline;
 }
 
 .main a {
