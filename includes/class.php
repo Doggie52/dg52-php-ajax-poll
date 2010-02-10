@@ -113,27 +113,26 @@ class poll extends DB {
 			
 			// Echo poll header
 			echo "<h2>".$questions['question']."</h2>";
+			echo "<div class=\"flower\">&nbsp;</div>";
 			
 				// Start the form
 				echo "<form>";
 				echo "<p>";
 				echo "<input type=\"hidden\" id=\"id\" value=\"".$questions['id']."\" />";
-				echo "<select id=\"vote\">";
-				echo "<option value=\"a1\">".$questions['a1']."</option>";
-				echo "<option value=\"a2\">".$questions['a2']."</option>";
+				echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>";
+				echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
 					// If extra answers are available, display
 					if ($questions['a3']){
-						echo "<option value=\"a3\">".$questions['a3']."</option>";
+						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
 					}
 					if ($questions['a4']){
-						echo "<option value=\"a4\">".$questions['a4']."</option>";
+						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
 					}
 					if ($questions['a5']){
-						echo "<option value=\"a5\">".$questions['a5']."</option>";
+						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
 					}
-				echo "</select>";
 				echo "<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />";
-				echo "</p></form>";
+				echo "</form>";
 			// Print the result container
 			echo "<div id=\"resultDiv\"><p>Results</p></div>";
 	}
