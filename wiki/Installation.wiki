@@ -1,4 +1,5 @@
 #summary How to install a copy of dG52 PHP and AJAX Poll
+#labels Featured
 
 == Introduction ==
 
