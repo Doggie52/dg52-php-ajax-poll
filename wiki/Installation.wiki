@@ -20,4 +20,10 @@ This page will cover how to install a fresh copy of dG52 PHP and AJAX Poll softw
 You're done!
 
 = Configuration =
-_to-do_
+== Styling ==
+All styling properties are made through the `/includes/styles.css`. You can, through basic CSS, manipulate nearly all styling aspects of the main poll through this file.
+== Templates ==
+dG52 PHP and AJAX Poll uses template functionality to display and manage the user interface. Templates are small files with the `.tpl` extension holding regular XHTML (or HTML) code and PHP variables (labels enclosed in `%%`'s). Editing these give you access to the general layout of the poll as opposed to only being able to alter the stylistic aspects (with the `.css` file).
+Templates are stored in the `/templates/` directory and can be edited through any text-editor.
+=== Adding labels ===
+As mentioned previously, the template files hold labels enclosed in `%%`'s. These can be defined, or as we like to call it - _translated_, by simply editing the `/includes/template_dictionary.php` file. When editing the file, however, you must keep in mind that you need the correct syntax or else you will end up with PHP errors. The included dictionary file should be enough to get you going.
