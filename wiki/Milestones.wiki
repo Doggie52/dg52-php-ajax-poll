@@ -1,0 +1,10 @@
+#summary Past, current and future milestones for the project.
+#labels Featured
+
+= Introduction =
+
+In coding projects, milestones act as goals or objectives which the involved coders strive to achieve. Our past milestones and their revision-number are listed here amongst future milestones and features included.
+
+
+= Past Milestones =
+_none yet_
