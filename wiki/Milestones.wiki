@@ -8,8 +8,10 @@ In coding projects, milestones act as goals or objectives which the involved cod
 
 = Past Milestones =
 === Project Start ===
- revision: 1
- date: Jan 22, 2010
+revision: 1
+
+date: Jan 22, 2010
 === New Design ===
- revision: 68
- date: Feb 10, 2010
+revision: 68
+
+date: Feb 10, 2010
