@@ -27,9 +27,9 @@ function incFile($filename) {
 		
 			// Return different depending on the extension
 			if ($exts=="css"){
-				return "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"".$filename."\" />";
+				return "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"".$filename."?sid=".md5(time())."\" />";
 			}elseif ($exts=="js"){
-				return "<script type=\"text/javascript\" src=\"".$filename."\"></script>";
+				return "<script type=\"text/javascript\" src=\"".$filename."?sid=".md5(time())."\"></script>";
 			}elseif ($exts=="txt"){
 				$myFile = $filename;
 				$fopen = fopen($myFile, 'r');
@@ -116,20 +116,20 @@ class poll extends DB {
 			echo "<div class=\"flower\">&nbsp;</div>";
 			
 				// Start the form
-				echo "<form>";
+				echo "<form name=\"vote\"";
 				echo "<p>";
-				echo "<input type=\"hidden\" id=\"id\" value=\"".$questions['id']."\" />";
-				echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>";
-				echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
+				echo "<input type=\"hidden\" id=\"voteid\" value=\"".$questions['id']."\" />";
+				echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>";
+				echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
 					// If extra answers are available, display
 					if ($questions['a3']){
-						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
+						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
 					}
 					if ($questions['a4']){
-						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
+						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
 					}
 					if ($questions['a5']){
-						echo "<p><input type=\"radio\" name=\"vote\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
+						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
 					}
 				echo "<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />";
 				echo "</form>";
@@ -146,7 +146,7 @@ class poll extends DB {
 		// The cookie is not set, continue
 		
 			// Check for invalid stuff
-			$answer_array = array("a1", "a2", "a3", "a4", "a5");
+			$answer_array = array("1", "2", "3", "4", "5");
 			if (!in_array($answer_column, $answer_array)){
 				echo("<p>Invalid answer!</p>");
 			}else{

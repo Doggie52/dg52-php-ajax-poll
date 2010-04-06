@@ -8,6 +8,7 @@
 	
 var xmlHttp
 
+
 function goPage(str)
 {
 	xmlHttp=GetXmlHttpObject();
@@ -21,6 +22,7 @@ function goPage(str)
 	xmlHttp.send(null);
 }
 
+
 function placeVote()
 {
 	xmlHttp=GetXmlHttpObject();
@@ -29,8 +31,12 @@ function placeVote()
 		alert ("Your browser does not support AJAX!");
 		return;
 	}
-	var id = document.getElementById('id').value;
-	var vote = document.getElementById('vote').value;
+
+	for (var i = 0; i < document.vote.voteradio.length; i++){
+		if (document.vote.voteradio[i].checked==true)
+		var id = i
+	}
+	var vote = document.getElementById('voteid').value;
 	var queryString = "?id=" + id + "&vote=" + vote;
 	
 	xmlHttp.onreadystatechange=showResult;
