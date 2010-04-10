@@ -12,11 +12,14 @@ This page will, in the future, hold a list of things that need to be done.
   * Re-design the admin control panel - make it stand out from the rest of the poll's style
  * Main
   * <s>Re-do all UI, making it use a simple and [TemplateClass easy-to-use template system]</s> *PARTIALLY DONE*
-  * Implement sleeker voting than `<option>`-based answers
+  * <s>Implement sleeker voting than `<option>`-based answers</s> *DONE*
   * <s>Add a _loading_-image for all AJAX requests</s> *DONE*
-  * Implement a graphical view of the results of a poll for both admins and users. Perhaps make use of some GD library or so
+  * Implement a graphical view of the results of a poll for both admins and users
+   * Perhaps make use of some GD library or so
+   * Generally re-work the structure for displaying results
 == Fixes ==
  * Navigation inside the admin-panel must be intuitive and easy-to-use
   * Support editing of multiple polls - allow admin to select which to edit
   * Generally support multiple polls, making use of the `show` boolean to specify which to show and which to hide
   * Make use of AJAX inside the admin-panel
+ * Allow functions like `displayPoll()` and `displayVote()` to use the `template` class
