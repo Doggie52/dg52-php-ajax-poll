@@ -81,6 +81,7 @@ class poll extends DB {
 		$answer = $this->fetch("SELECT * FROM `results` WHERE `id` = '".$question['id']."'");
 		
 			// Do the math to get the percentage
+			// Avoid possible warnings when dividing by zero
 			$a1 = 100*@round($answer['a1']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
 			$a2 = 100*@round($answer['a2']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
 			$a3 = 100*@round($answer['a3']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
@@ -90,20 +91,21 @@ class poll extends DB {
 				// Echo poll header
 				echo "<h2>Results of \"".$question['question']."\"</h2>";
 					// Print a default output scheme
-					echo "<ul>";
-					echo "<li>".$question['a1']." - ".$a1."%</li>";
-					echo "<li>".$question['a2']." - ".$a2."%</li>";
+					echo "<ul>
+					<li>".$question['a1']." - ".$a1."%</li>
+					<li>".$question['a2']." - ".$a2."%</li>";
+					// If the third answer isn't available, the others aren't either
 					if ($question['a3']){
-						echo "<li>".$question['a3']." - ".$a3."%</li>";
+						echo "\n<li>".$question['a3']." - ".$a3."%</li>";
+						if ($question['a4']){
+							echo "\n<li>".$question['a4']." - ".$a4."%</li>";
+							if ($question['a5']){
+								echo "\n<li>".$question['a5']." - ".$a5."%</li>";
+							}
+						}
 					}
-					if ($question['a4']){
-						echo "<li>".$question['a4']." - ".$a4."%</li>";
-					}
-					if ($question['a5']){
-						echo "<li>".$question['a5']." - ".$a5."%</li>";
-					}
-					echo "</ul>";
-					echo "<p>You can revote after 24 hours!</p>";
+					echo "\n</ul>
+					<p>You can revote after 24 hours!</p>";
 	}
 	
 	// Displays the voting module
@@ -112,29 +114,30 @@ class poll extends DB {
 		$questions = $this->fetch("SELECT * FROM `questions` WHERE `show` = '1' LIMIT 1");
 			
 			// Echo poll header
-			echo "<h2>".$questions['question']."</h2>";
-			echo "<div class=\"flower\">&nbsp;</div>";
+			echo "<h2>".$questions['question']."</h2>
+			<div class=\"flower\">&nbsp;</div>";
 			
 				// Start the form
-				echo "<form name=\"vote\"";
-				echo "<p>";
-				echo "<input type=\"hidden\" id=\"voteid\" value=\"".$questions['id']."\" />";
-				echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>";
-				echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
+				echo "\n<form name=\"vote\">
+				<p>
+				<input type=\"hidden\" id=\"voteid\" value=\"".$questions['id']."\" />
+				<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>
+				<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
 					// If extra answers are available, display
+					// If a third answer is not available, the others aren't either
 					if ($questions['a3']){
-						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
+						echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
+						if ($questions['a4']){
+							echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
+							if ($questions['a5']){
+								echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
+							}
+						}
 					}
-					if ($questions['a4']){
-						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
-					}
-					if ($questions['a5']){
-						echo "<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
-					}
-				echo "<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />";
-				echo "</form>";
-			// Print the result container
-			echo "<div id=\"resultDiv\"><p>Results</p></div>";
+				echo "\n<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />
+				</form>";
+			// Print the result container for future information
+			echo "\n<div id=\"resultDiv\"></div>";
 	}
 	
 	// Processes the vote
@@ -165,7 +168,7 @@ class poll extends DB {
 				  
 				// Update the database
 				$this->query("UPDATE `results` SET `".$answer_column."` = '".$numvotes."' WHERE `id` = '".$question_id."'");
-				// Set a cookie
+				// Set a cookie for 24hrs
 				setcookie("voted", "1", time()+86400);
 				// And last but not least, return a handled variable since it was a valid vote
 				$this->handled = 1;

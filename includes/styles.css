@@ -11,7 +11,7 @@
 *********************************/
 
 body {
-	font: 1.5em Georgia;
+	font: 1em Georgia;
 	background: #dfd5c5 url('../images/tile.gif');
 	color: #48433d;
 	margin: 0px;
@@ -54,7 +54,7 @@ body {
 	
 	.main li {
 		list-style-type: none;
-		display: inline;
+		display: block;
 	}
 	
 	.main a {
