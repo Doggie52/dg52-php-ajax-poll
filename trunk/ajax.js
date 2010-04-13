@@ -8,7 +8,6 @@
 	
 var xmlHttp
 
-
 function goPage(str)
 {
 	xmlHttp=GetXmlHttpObject();
@@ -21,7 +20,6 @@ function goPage(str)
 	xmlHttp.open("GET", str, true);
 	xmlHttp.send(null);
 }
-
 
 function placeVote()
 {
