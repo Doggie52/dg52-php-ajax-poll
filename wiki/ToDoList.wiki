@@ -23,3 +23,6 @@ This page will, in the future, hold a list of things that need to be done.
   * Generally support multiple polls, making use of the `show` boolean to specify which to show and which to hide
   * Make use of AJAX inside the admin-panel
  * Allow functions like `displayPoll()` and `displayVote()` to use the `template` class
+ * Implement a settings page inside the admin-panel
+  * Perhaps include a method of switching styles
+   * The above requires an entire new structure for styles
