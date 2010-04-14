@@ -43,8 +43,9 @@ class template {
 		}
 	}
 
-	private function replaceTemplateVars($templateName){
+	private function replaceTemplateVars($templateName, $additionalArray = null){
 	// Replaces variables in $templateName with those found in $dictionary
+	// If available, include an additional array
 	// Tutorial used: http://www.php.net/manual/en/function.str-replace.php#95198
 
 		// Declare arrays
@@ -65,10 +66,10 @@ class template {
 		return $translatedTemplate;
 	}
 	
-	public function printTemplate($templateName){
+	public function printTemplate($templateName, $additionalArray = null){
 	// Combines the previous functions into one, public function that renders the template
 		$this->checkExist($templateName);
-		$output = $this->replaceTemplateVars($this->loadTemplate($templateName));
+		$output = $this->replaceTemplateVars($this->loadTemplate($templateName), $additionalArray);
 		echo $output;
 	}
 
