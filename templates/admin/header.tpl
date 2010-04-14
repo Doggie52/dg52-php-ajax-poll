@@ -6,6 +6,6 @@
 		%CSS%
 	</head>
 	<body>
-		<div class="container">
-			<div class="main">
+		<div class="admin-container">
+			
 			
