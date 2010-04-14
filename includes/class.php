@@ -62,7 +62,7 @@ class DB {
 	
 	// Fetch results from SELECT
 	function fetch($sql) {
-		$query = mysql_query($sql);
+		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
 		return $array;
 	}
@@ -149,7 +149,7 @@ class poll extends DB {
 		// The cookie is not set, continue
 		
 			// Check for invalid stuff
-			$answer_array = array("1", "2", "3", "4", "5");
+			$answer_array = array("a1", "a2", "a3", "a4", "a5");
 			if (!in_array($answer_column, $answer_array)){
 				echo("<p>Invalid answer!</p>");
 			}else{
