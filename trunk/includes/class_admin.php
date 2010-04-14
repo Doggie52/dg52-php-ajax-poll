@@ -48,8 +48,8 @@ class session extends DB {
 				// Check if these are identical to the input
 				if ($adminDetails['username'] == md5($_POST['username'])
 					&&
-					$adminDetails['password'] == md5($_POST['password'])
-				){
+					$adminDetails['password'] == md5($_POST['password']))
+				{
 					// They are, so set a session
 					$this->setSession();
 				}else{
@@ -78,7 +78,7 @@ class admin extends DB {
 				echo "<form name=\"edit\" action=\"admin.php?handle=".$type."&id=".$id."\">";
 				// Make $template object global
 				global $template;
-					$template->printTemplate("admin/editform");
+					$template->printTemplate("admin/editform", $questions);
 				echo "</form>";
 			}
 		break;
