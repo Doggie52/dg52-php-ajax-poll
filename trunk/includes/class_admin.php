@@ -76,7 +76,7 @@ class admin extends DB {
 				$questions = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."'");
 				// Initialize the edit-form
 				echo "<form name=\"edit\" action=\"admin.php?handle=".$type."&id=".$id."\">";
-				// Make $template object global
+				// Make $template object global and print edit form
 				global $template;
 					$template->printTemplate("admin/editform", $questions);
 				echo "</form>";
@@ -85,12 +85,12 @@ class admin extends DB {
 		case "delete":
 			if($id){
 				// Fetch the values in the database matching $id
-				$poll = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."'");
+				$poll = $this->fetch("SELECT `question` FROM `questions` WHERE `id` = '".$id."'");
 				// Initialize the confirmation question
-				echo "<form name=\"confirm_delete\" action=\"admin.php?handle=".$type."&id=".$id."\">";
-				echo "<p>Are you sure you want to delete the \"".$poll['question']."\" poll?</p>";
-				echo "<p><select id=\"delete\" name=\"delete\"><option value=\"1\">Yes</option><option value=\"0\">No</option></select></p>";
-				echo "<p><input type=\"submit\" value=\"Delete\" name=\"submit\" class=\"submit\" /></p>";
+				echo "<form name=\"confirm_delete\" method=\"post\" action=\"admin.php?handle=".$type."&id=".$id."\">";
+				// Make $template object global and print delete form
+				global $template;
+					$template->printTemplate("admin/deleteform", $poll);
 				echo "</form>";
 			}
 		break;
@@ -155,6 +155,8 @@ class admin extends DB {
 				if($_POST['delete'] == 1){
 					// Delete the row
 					$this->query("DELETE * FROM `questions` WHERE `id` = '".$id."'");
+					// Echo output
+					echo "<p>Poll question with ID <code>$id</code> was deleted!</p>";
 				}else{
 					// Output an "error"
 					echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
