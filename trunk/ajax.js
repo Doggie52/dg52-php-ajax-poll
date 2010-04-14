@@ -35,7 +35,7 @@ function placeVote()
 		var id = i
 	}
 	var vote = document.getElementById('voteid').value;
-	var queryString = "?id=" + id + "&vote=" + vote;
+	var queryString = "?id=" + id + "&vote=a" + vote;
 	
 	xmlHttp.onreadystatechange=showResult;
 	xmlHttp.open("GET", "vote.php" + queryString, true);

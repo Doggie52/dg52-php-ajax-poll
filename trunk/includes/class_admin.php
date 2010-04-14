@@ -73,22 +73,19 @@ class admin extends DB {
 		case "edit":
 			if($id){
 				// Fetch the values in the database matching $id
-				$questions = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."");
+				$questions = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."'");
 				// Initialize the edit-form
 				echo "<form name=\"edit\" action=\"admin.php?handle=".$type."&id=".$id."\">";
-				echo "<p>Poll header: <input type=\"text\" name=\"question\" value=\"".$questions['question']."\" /></p>";
-				echo "<p>First question: <input type\"text\" name=\"a1\" value=\"".$questions['a1']."\" /></p>";
-				echo "<p>Second question: <input type=\"text\" name=\"a2\" value=\"".$questions['a2']."\" /></p>";
-				echo "<p>Third question: <input type=\"text\" name=\"a3\" value=\"".$questions['a3']."\" /></p>";
-				echo "<p>Fourth question: <input type=\"text\" name=\"a4\" value=\"".$questions['a4']."\" /></p>";
-				echo "<p>Fifth question: <input type=\"text\" name=\"a5\" value=\"".$questions['a5']."\" /></p>";
-				echo "<p><input type=\"submit\" value=\"Edit poll\" name=\"submit\" /></p>";
+				// Make $template object global
+				global $template;
+					$template->printTemplate("admin/editform");
+				echo "</form>";
 			}
 		break;
 		case "delete":
 			if($id){
 				// Fetch the values in the database matching $id
-				$poll = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."");
+				$poll = $this->fetch("SELECT * FROM `questions` WHERE `id` = '".$id."'");
 				// Initialize the confirmation question
 				echo "<form name=\"confirm_delete\" action=\"admin.php?handle=".$type."&id=".$id."\">";
 				echo "<p>Are you sure you want to delete the \"".$poll['question']."\" poll?</p>";

@@ -22,6 +22,14 @@
 		// Session-related
 		"ADMINKEY" 		=> $_SESSION['adminKey'],
 		
+		// Dynamic form entries
+		"QUESTION"		=> $questions['question'],
+		"ANSWER1"		=> $questions['a1'],
+		"ANSWER2"		=> $questions['a2'],
+		"ANSWER3"		=> $questions['a3'],
+		"ANSWER4"		=> $questions['a4'],
+		"ANSWER5"		=> $questions['a5'],
+		
 	);
 
 ?>
