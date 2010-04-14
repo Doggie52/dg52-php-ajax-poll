@@ -90,7 +90,7 @@ class admin extends DB {
 				echo "<form name=\"confirm_delete\" action=\"admin.php?handle=".$type."&id=".$id."\">";
 				echo "<p>Are you sure you want to delete the \"".$poll['question']."\" poll?</p>";
 				echo "<p><select id=\"delete\" name=\"delete\"><option value=\"1\">Yes</option><option value=\"0\">No</option></select></p>";
-				echo "<p><input type=\"submit\" value=\"Delete\" name=\"submit\" /></p>";
+				echo "<p><input type=\"submit\" value=\"Delete\" name=\"submit\" class=\"submit\" /></p>";
 				echo "</form>";
 			}
 		break;
