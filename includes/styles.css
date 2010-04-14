@@ -32,15 +32,11 @@ body {
 a {
 	color: #3f3f3f;
 	text-decoration: none;
-	position: relative;
-	-webkit-transition: top 60ms linear;
-	-moz-transition: top 60ms linear;
 	font-size: 1.1em;
 }
 	
 	a:hover {
 		color: #3d3e59;
-		top: 2px;
 	}
 
 /*********************************
@@ -129,7 +125,7 @@ div.admin-container h1.header {
 	margin-bottom: 20px;
 }
 	
-div.admin-container ul li {
+#menu li {
 	display: inline;
 	padding: 5px 10px;
 	font-size: 1em;
@@ -157,7 +153,14 @@ div.admin-container ul li {
 );
 	border-color:#FFFFFF rgba(255, 255, 255, 0.5);
 	margin: 0 3px;
+	-webkit-transition: top 60ms linear;
+	-moz-transition: top 60ms linear;
+	position: relative;
 } 
+
+#menu li:hover {
+	top: 2px;
+}
 
 
 	/*********************************
@@ -189,7 +192,7 @@ div.admin-container ul li {
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
-		border: 1px solid #c6c6c6;
+		border: 1px solid #a1a1a1;
 	}
 	
 	div.admin-container form input.submit {
