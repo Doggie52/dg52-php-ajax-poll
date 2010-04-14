@@ -57,7 +57,8 @@ class DB {
 	
 	// A normal query, for DELETE and UPDATE along with other stuff
 	function query($sql) {
-		$query = mysql_query($sql);
+		$query = mysql_query($sql) or die(mysql_error());
+		echo "$sql";
 	}
 	
 	// Fetch results from SELECT
@@ -169,7 +170,7 @@ class poll extends DB {
 				// Update the database
 				$this->query("UPDATE `results` SET `".$answer_column."` = '".$numvotes."' WHERE `id` = '".$question_id."'");
 				// Set a cookie for 24hrs
-				setcookie("voted", "1", time()+86400);
+				// setcookie("voted", "1", time()+86400);
 				// And last but not least, return a handled variable since it was a valid vote
 				$this->handled = 1;
 			}

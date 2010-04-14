@@ -32,9 +32,10 @@ function placeVote()
 
 	for (var i = 0; i < document.vote.voteradio.length; i++){
 		if (document.vote.voteradio[i].checked==true)
-		var id = i
+			// JS starts counting from zero
+			var vote = i + 1;
 	}
-	var vote = document.getElementById('voteid').value;
+	var id = document.getElementById('voteid').value;
 	var queryString = "?id=" + id + "&vote=a" + vote;
 	
 	xmlHttp.onreadystatechange=showResult;
