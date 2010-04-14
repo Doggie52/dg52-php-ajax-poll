@@ -1,4 +1,4 @@
-	/*
+/*
 		dG52 PHP and AJAX Poll software
 
 		Author: Douglas Stridsberg
@@ -9,6 +9,8 @@
 /*********************************
 		MAIN STYLES
 *********************************/
+
+@import url("reset.css");
 
 body {
 	font: 1em Georgia;
@@ -28,16 +30,16 @@ body {
 }
 
 a {
-	color: grey;
-	border-bottom: 1px dashed #ebebeb;
+	color: #3f3f3f;
 	text-decoration: none;
 	position: relative;
 	-webkit-transition: top 60ms linear;
+	-moz-transition: top 60ms linear;
+	font-size: 1.1em;
 }
 	
 	a:hover {
 		color: #3d3e59;
-		border-bottom: 3px double #b1b1b1;
 		top: 2px;
 	}
 
@@ -114,24 +116,56 @@ div.admin-container h1.header {
 	color: #486891;
 	border-bottom: 3px dashed #a7a7a7;
 	font-size: 3em;
+	margin-bottom: 10px;
 }
 
 	/*********************************
 			MENU
 	*********************************/
 	
+#menu {
+	margin-top: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+	
 div.admin-container ul li {
 	display: inline;
-	padding: 0 5px;
-	font-size: 1.2em;
+	padding: 5px 10px;
+	font-size: 1em;
 	font-weight: 500;
 	text-transform: capitalize;
+	-moz-appearance:none;
+	-moz-border-radius:5px;
+	-moz-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.5), -1px 0 0 rgba(0, 0, 0, 0.3), 0 2px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-sizing:border-box;
+	-webkit-appearance:none;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.5), -1px 0 0 rgba(0, 0, 0, 0.3), 0 2px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-sizing:border-box;
+	background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.16, rgb(207,207,207)),
+    color-stop(0.79, rgb(250,250,250))
+);
+	background:-moz-linear-gradient(
+    center bottom,
+    rgb(207,207,207) 16%,
+    rgb(250,250,250) 79%
+);
+	border-color:#FFFFFF rgba(255, 255, 255, 0.5);
+	margin: 0 3px;
 } 
 
-	/*********************************
-			ADD FORM
-	*********************************/
 
+	/*********************************
+			FORMS
+	*********************************/
+	td {
+	padding: 3.5px;
+}
 
 	div.admin-container form {
 		margin: 5px auto;
@@ -159,12 +193,46 @@ div.admin-container ul li {
 	}
 	
 	div.admin-container form input.submit {
-		width: auto;
+		-moz-appearance:none;
+		-moz-border-radius:5px;
+		-moz-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.5), -1px 0 0 		rgba(0, 0, 0, 0.3), 0 2px 0 rgba(0, 0, 0, 0.15);
+		-moz-box-sizing:border-box;
+		-webkit-appearance:none;
+		-webkit-border-radius:5px;
+		-webkit-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.5), -1px 0 		0 rgba(0, 0, 0, 0.3), 0 2px 0 rgba(0, 0, 0, 0.15);
+		-moz-box-sizing:border-box;
+		background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.16, rgb(207,207,207)),
+	    color-stop(0.79, rgb(250,250,250))
+		);
+		background:-moz-linear-gradient(
+	    center bottom,
+	    rgb(207,207,207) 16%,
+	    rgb(250,250,250) 79%
+		);
+		border-color:#FFFFFF rgba(255, 255, 255, 0.5);
+		border-style:solid;
+		border-width:1px;
+		color:#52585D;
+		cursor:pointer;
+		display:inline-block;
+		font-size:1.1em;
+		line-height:16px;
+		margin:3px 1px;
+		min-width:80px;
+		overflow:visible;
+		padding:5px 14px;
+		position:relative;
+		text-align:center;
+		text-shadow:0 1px 0 #FFFFFF;
+		vertical-align:middle;
+		white-space:nowrap;
+		width:auto;
 		float: right;
-		padding: 2px 10px;
-		font-size: 1.1em;
-		margin: 10px 0;
-}
+	}
 	
 /*********************************
 		FOOTER

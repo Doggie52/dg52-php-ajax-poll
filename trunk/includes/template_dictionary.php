@@ -17,6 +17,7 @@
 		// HTML-includes
 		"CSS" 			=> incFile("includes/styles.css"),
 		"AJAX" 			=> incFile("ajax.js"),
+		"JQUERY"		=> incFile("http://code.jquery.com/jquery-1.4.2.min.js"),
 		"FORMJS" 		=> incFile("form.js"),
 		
 		// Session-related
