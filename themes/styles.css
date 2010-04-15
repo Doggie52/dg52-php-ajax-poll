@@ -14,13 +14,13 @@
 
 body {
 	font: 1em Georgia;
-	background: #dfd5c5 url('../images/tile.gif');
+	background: #dfd5c5 url('images/tile.gif');
 	color: #48433d;
 	margin: 0px;
 }
 
 .radio {
-	background: url('../images/radio.gif') no-repeat;
+	background: url('images/radio.gif') no-repeat;
 	width: 19px;
 	height: 25px;
 	padding: 0 5px 0 0;
@@ -70,7 +70,7 @@ a {
 	}
 	
 .flower {
-	background: url('../images/flower.png') no-repeat;
+	background: url('images/flower.png') no-repeat;
 	height: 77px;
 	width: 245px;
 	margin:0 auto;

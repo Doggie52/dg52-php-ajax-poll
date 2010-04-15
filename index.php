@@ -8,8 +8,9 @@
 	*/
 
 // Includes
-include("includes/class.php");
-include("includes/class_template.php");
+include("config.php");
+include(POLL_SYS_DIR."includes/class.php");
+include(POLL_SYS_DIR."includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();

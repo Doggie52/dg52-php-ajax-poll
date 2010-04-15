@@ -6,26 +6,29 @@
 			Email: doggie52@gmail.com
 			URL: www.douglasstridsberg.com
 	*/
+	
+global $config;
 
 class template {
 
 	function __construct(){
 		// Checks for the 'templates'-folder's existence, as well as template_dictionary's existence
-		if(!file_exists("templates")){
+		if(!file_exists(POLL_THEME_DIR."templates")){
 			echo "Fatal error!
 			<code>templates</code> directory does not exist!";
 			exit;
 		}
-		if(!file_exists("includes/template_dictionary.php")){
+		if(!file_exists(POLL_SYS_DIR."includes/template_dictionary.php")){
 			echo "Fatal error!
-			<code>template_dictionary.php</code> file does not exist!";
+			<code>template_dictionary.php</code> file does not exist in location <br />";
+			echo $config['sysDir']."includes/template_dictionary.php";
 			exit;
 		}
 	}
 
 	private function checkExist($templateName){
 	// Checks a $templateName's existence - exit if non-existant
-		if(!file_exists("templates/".$templateName.".tpl")){
+		if(!file_exists(POLL_THEME_DIR."templates/".$templateName.".tpl")){
 			echo "Fatal error!
 			<code>$templateName.tpl</code> does not exist!";
 			exit;
@@ -34,7 +37,7 @@ class template {
 
 	private function loadTemplate($templateName){
 	// Loads $templateName
-		if($loadedTemplate = file_get_contents("templates/".$templateName.".tpl", FILE_USE_INCLUDE_PATH)){
+		if($loadedTemplate = file_get_contents(POLL_THEME_DIR."templates/".$templateName.".tpl", FILE_USE_INCLUDE_PATH)){
 			return $loadedTemplate;
 		}else{
 			echo "Fatal error!
@@ -53,7 +56,7 @@ class template {
 		$translatedArray	= array();
 		
 		// Include dictionary
-		require("includes/template_dictionary.php");
+		require(POLL_SYS_DIR."includes/template_dictionary.php");
 
 		// For each dictionary entry, split the variable and the translation into two arrays, before and after
 		foreach($dictionary as $before => $after){
