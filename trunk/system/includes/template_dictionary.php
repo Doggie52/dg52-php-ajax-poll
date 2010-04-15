@@ -15,7 +15,7 @@
 		"DATE" 			=> date(DATE_RFC822),
 		
 		// HTML-includes
-		"CSS" 			=> incFile("includes/styles.css"),
+		"CSS" 			=> incFile("themes/styles.css"),
 		"AJAX" 			=> incFile("ajax.js"),
 		"JQUERY"		=> incFile("http://code.jquery.com/jquery-1.4.2.min.js"),
 		"FORMJS" 		=> incFile("form.js"),
@@ -29,8 +29,8 @@
 		"ANSWER2"		=> $additionalArray['a2'],
 		"ANSWER3"		=> $additionalArray['a3'],
 		"ANSWER4"		=> $additionalArray['a4'],
-		"ANSWER5"		=> $additionalArray['a5'],
-		
+		"ANSWER5"		=> $additionalArray['a5']
+			
 	);
 
 ?>
