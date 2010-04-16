@@ -8,6 +8,10 @@
 	*/
 
 	// Declare dictionary array
+	
+	// GUIDELINES
+	// On a new line, type the %VARIABLE% (without the %%'s) you want to translate, an arrow (=>) and what it translates to.
+	// Remember to not include a comma in the last translation!
 	$dictionary = array(
 	
 		// Main translations

@@ -68,7 +68,7 @@ a {
 	}
 	
 .flower {
-	background: url('../images/flower.png') no-repeat;
+	background: url('images/flower.png') no-repeat;
 	height: 77px;
 	width: 245px;
 	margin:0 auto;
