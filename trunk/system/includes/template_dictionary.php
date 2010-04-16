@@ -33,8 +33,32 @@
 		"ANSWER2"		=> $additionalArray['a2'],
 		"ANSWER3"		=> $additionalArray['a3'],
 		"ANSWER4"		=> $additionalArray['a4'],
-		"ANSWER5"		=> $additionalArray['a5']
+		"ANSWER5"		=> $additionalArray['a5'],
+		"ANSWERPCRT1"	=> $additionalArray['pcrta1'],
+		"ANSWERPCRT2"	=> $additionalArray['pcrta2'],
+		"ANSWERPCRT3"	=> $additionalArray['pcrta3'],
+		"ANSWERPCRT4"	=> $additionalArray['pcrta4'],
+		"ANSWERPCRT5"	=> $additionalArray['pcrta5'],
 			
 	);
+	
+	// In order for the poll answers that aren't available to not show, the following must be set
+	if(!$additionalArray['extra3']) {
+		$dictionary['EXTRAANSWER3']	= "none";
+	}else{
+		$dictionary['EXTRAANSWER3']	= $additionalArray['extra3'];
+	}
+	
+	if(!$additionalArray['extra4']) {
+		$dictionary['EXTRAANSWER4']	= "none";
+	}else{
+		$dictionary['EXTRAANSWER4']	= $additionalArray['extra4'];
+	}
+	
+	if(!$additionalArray['extra5']) {
+		$dictionary['EXTRAANSWER5']	= "none";
+	}else{
+		$dictionary['EXTRAANSWER5']	= $additionalArray['extra5'];
+	}
 
 ?>

@@ -14,6 +14,9 @@ include(POLL_SYS_DIR."includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
+	
+		// Creates the template parser
+		$template = new template();
 
 		// Creates the default poll
 		$poll = new poll();

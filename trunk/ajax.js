@@ -49,7 +49,7 @@ function showResult()
 	{
 		document.getElementById("resultDiv").innerHTML=xmlHttp.responseText;
 	} else {
-		document.getElementById("resultDiv").innerHTML="<img src=\"images/loading.gif\" />";
+		document.getElementById("resultDiv").innerHTML="<img src=\"themes/images/loading.gif\" />";
 	}
 }
 
@@ -59,7 +59,7 @@ function switchPage()
 	{
 		document.getElementById("mainDiv").innerHTML=xmlHttp.responseText;
 	} else {
-		document.getElementById("resultDiv").innerHTML="<img src=\"images/loading.gif\" />";
+		document.getElementById("resultDiv").innerHTML="<img src=\"themes/images/loading.gif\" />";
 	}
 }
 
