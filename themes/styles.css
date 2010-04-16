@@ -97,7 +97,7 @@ a {
 
 @font-face {
 	font-family: 'CandelaBook';
-	src: url('font/sCandelaBook.eot');
+	src: url('fonts/CandelaBook.eot');
 	src: local('Candela'), local('Candela-Book'), url('fonts/CandelaBook.woff') format('woff'), url('fonts/CandelaBook.ttf') format('truetype'), url('CandelaBook.svg#Candela-Book') format('svg');
 }
 
