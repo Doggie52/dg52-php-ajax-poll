@@ -3,7 +3,7 @@
 
 == Introduction ==
 
-This page will, in the future, hold a list of things that need to be done.
+This page is mostly for developers to share ideas and suggestions for future work.
 
 = List =
 
@@ -17,12 +17,22 @@ This page will, in the future, hold a list of things that need to be done.
   * Implement a graphical view of the results of a poll for both admins and users
    * Perhaps make use of some GD library or so
    * Generally re-work the structure for displaying results
+  * Re-design entire poll-interface
 == Fixes ==
- * Navigation inside the admin-panel must be intuitive and easy-to-use
+ * <s>Navigation inside the admin-panel must be intuitive and easy-to-use</s> *PARTIALLY DONE*
   * Support editing of multiple polls - allow admin to select which to edit
   * Generally support multiple polls, making use of the `show` boolean to specify which to show and which to hide
   * Make use of AJAX inside the admin-panel
  * Allow functions like `displayPoll()` and `displayVote()` to use the `template` class
  * Implement a settings page inside the admin-panel
   * Perhaps include a method of switching styles
-   * The above requires an entire new structure for styles
+   * <s>The above requires an entire new structure for styles</s> *PARTIALLY DONE*
+
+= What we strive for =
+
+We as developers and contributors must strive for the following:
+ * In all Wiki articles, commit messages and other areas we must keep the English used at a flawless and professional level
+ * We must always thoroughly test our changes before committing them
+ * We must always attempt to in detail explain changes that we commit
+ * We must never in public attack or blame authors of previous revisions
+ * We must, however, be honest, neutral and level-headed at all times
