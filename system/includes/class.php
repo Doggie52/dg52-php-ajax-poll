@@ -56,7 +56,6 @@ class DB {
 	// A normal query, for DELETE and UPDATE along with other stuff
 	function query($sql) {
 		$query = mysql_query($sql) or die(mysql_error());
-		echo "$sql";
 	}
 	
 	// Fetch results from SELECT
@@ -81,30 +80,26 @@ class poll extends DB {
 		
 			// Do the math to get the percentage
 			// Avoid possible warnings when dividing by zero
-			$a1 = 100*@round($answer['a1']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
-			$a2 = 100*@round($answer['a2']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
-			$a3 = 100*@round($answer['a3']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
-			$a4 = 100*@round($answer['a4']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
-			$a5 = 100*@round($answer['a5']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
+			$question['pcrta1'] = 100*@round($answer['a1']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
+			$question['pcrta2'] = 100*@round($answer['a2']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
+			$question['pcrta3'] = 100*@round($answer['a3']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
+			$question['pcrta4'] = 100*@round($answer['a4']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
+			$question['pcrta5'] = 100*@round($answer['a5']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
 			
-				// Echo poll header
-				echo "<h2>Results of \"".$question['question']."\"</h2>";
-					// Print a default output scheme
-					echo "<ul>
-					<li>".$question['a1']." - ".$a1."%</li>
-					<li>".$question['a2']." - ".$a2."%</li>";
-					// If the third answer isn't available, the others aren't either
-					if ($question['a3']){
-						echo "\n<li>".$question['a3']." - ".$a3."%</li>";
-						if ($question['a4']){
-							echo "\n<li>".$question['a4']." - ".$a4."%</li>";
-							if ($question['a5']){
-								echo "\n<li>".$question['a5']." - ".$a5."%</li>";
-							}
-						}
-					}
-					echo "\n</ul>
-					<p>You can revote after 24 hours!</p>";
+			// If answer exists, display it
+			if($answer['a3']) {
+				$question['extra3'] = "block";
+			}
+			if($answer['a4']) {
+				$question['extra4'] = "block";
+			}
+			if($answer['a5']) {
+				$question['extra5'] = "block";
+			}
+			
+				// Make $template object global and output results
+				global $template;
+					$template->printTemplate("results", $question);
 	}
 	
 	// Displays the voting module
