@@ -51,6 +51,7 @@ a {
 	padding: 0px;
 }
 
+
 /*********************************
 		MAIN DIV
 *********************************/
@@ -60,17 +61,14 @@ a {
 	padding-top: 75px;
 }
 
-	.main h2 {
-		
-	}
-	
+
 	.main li {
 		list-style-type: none;
 		display: block;
 	}
 	
 .flower {
-	background: url('images/flower.png') no-repeat;
+	background: url('../images/flower.png') no-repeat;
 	height: 77px;
 	width: 245px;
 	margin:0 auto;
@@ -97,32 +95,40 @@ a {
 	src: local('Museo Sans'), local('MuseoSans-500'), url('fonts/MuseoSans_500.woff') format('woff'), url('fonts/MuseoSans_500.ttf') format('truetype');
 }
 
-div.admin-container {
-	font-family: MuseoSans500, Georgia, "Times New Roman", Times, serif;
-	width: 800px;
-	min-height: 500px;
-	height: auto;
-	margin: auto;
-	padding: 0px;
-	text-shadow: #f8fcee 0 1px 1px;
+@font-face {
+	font-family: 'CandelaBook';
+	src: url('font/sCandelaBook.eot');
+	src: local('Candela'), local('Candela-Book'), url('fonts/CandelaBook.woff') format('woff'), url('fonts/CandelaBook.ttf') format('truetype'), url('CandelaBook.svg#Candela-Book') format('svg');
 }
 
+div.admin-container {
+		font-family: MuseoSans500, Georgia, "Times New Roman", Times, serif;
+		width: 800px;
+		min-height: 500px;
+		height: auto;
+		margin: auto;
+		padding: 0px;
+		text-shadow: #f8fcee 0 1px 1px;
+
+	}
+
 div.admin-container h1.header {
-	text-align: left;
-	color: #486891;
-	border-bottom: 3px dashed #a7a7a7;
-	font-size: 3em;
-	margin-bottom: 10px;
-}
+	text-align: center;
+	color: #698695;
+	font: 3em CandelaBook, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
 
 	/*********************************
 			MENU
 	*********************************/
 	
 #menu {
-	margin-top: 20px;
+	padding-top: 20px;
 	text-align: center;
-	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 2px dashed #a7a7a7;
+	border-top: 2px dashed #a7a7a7;
+	background: rgba(240,237,235,0.2);
 }
 	
 #menu li {
@@ -153,13 +159,13 @@ div.admin-container h1.header {
 );
 	border-color:#FFFFFF rgba(255, 255, 255, 0.5);
 	margin: 0 3px;
-	-webkit-transition: top 60ms linear;
-	-moz-transition: top 60ms linear;
+	-webkit-transition: top 100ms linear;
+	-moz-transition: top 100ms linear;
 	position: relative;
 } 
 
 #menu li:hover {
-	top: 2px;
+	top: 3px;
 }
 
 
@@ -174,9 +180,12 @@ div.admin-container h1.header {
 		margin: 5px auto;
 		display: table;
 		padding: 10px 10px;
-		border-top: 1px dashed #a4a4a4;
-		border-bottom: 1px dashed #a4a4a4;
+		width: 100%;
 	}
+	
+	div.admin-container form table {
+		margin: 0 auto;
+}
 	
 	div.admin-container form .label {
 		text-align: right;
@@ -222,12 +231,12 @@ div.admin-container h1.header {
 		color:#52585D;
 		cursor:pointer;
 		display:inline-block;
-		font-size:1.1em;
+		font-size:1em;
 		line-height:16px;
 		margin:3px 1px;
 		min-width:80px;
 		overflow:visible;
-		padding:5px 14px;
+		padding:3px 10px;
 		position:relative;
 		text-align:center;
 		text-shadow:0 1px 0 #FFFFFF;
@@ -236,6 +245,17 @@ div.admin-container h1.header {
 		width:auto;
 		float: right;
 	}
+	
+	/*********************************
+			LOGIN FORM
+	*********************************/
+	
+	#login {
+		background: rgba(240,237,235,0.25);
+		border-top: 1px solid rgba(240,237,235,0.6);
+		border-bottom: 1px solid rgba(240,237,235,0.6);
+	}
+	
 	
 /*********************************
 		FOOTER
