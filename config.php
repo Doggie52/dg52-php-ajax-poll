@@ -12,11 +12,11 @@
 
 	// Values corresponding to the database
 	// Edit these to reflect your own environment
-	$config['dbHost']	= "sql203.byethost9.com";
+	$config['dbHost']	= "localhost";
 	$config['dbPort']	= '3306';
-	$config['dbName']	= "b9_5389139_poll";
-	$config['dbUser']	= "b9_5389139";
-	$config['dbPassw']	= "Vista123";
+	$config['dbName']	= "database";
+	$config['dbUser']	= "username";
+	$config['dbPassw']	= "password";
 	
 	// The location of your root directory, system directory and themes directory
 	define("POLL_BASE_DIR", $_SERVER['DOCUMENT_ROOT']."/");
