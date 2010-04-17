@@ -56,6 +56,10 @@ class DB {
 	// A normal query, for DELETE and UPDATE along with other stuff
 	function query($sql) {
 		$query = mysql_query($sql) or die(mysql_error());
+		
+		if(POLL_DEBUG) {
+			echo "<code>$query</code><br />";
+		}
 	}
 	
 	// Fetch results from SELECT
@@ -63,6 +67,11 @@ class DB {
 		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
 		return $array;
+		
+		if(POLL_DEBUG) {
+			echo "<code>$query</code><br />";
+			echo "<code>".print_r($array)."</code><br />";
+		}
 	}
 }
 
@@ -162,8 +171,10 @@ class poll extends DB {
 				  
 				// Update the database
 				$this->query("UPDATE `results` SET `".$answer_column."` = '".$numvotes."' WHERE `id` = '".$question_id."'");
-				// Set a cookie for 24hrs
-				// setcookie("voted", "1", time()+86400);
+				// Set a cookie for 24hrs if debug is off
+				if(!POLL_DEBUG) {
+					setcookie("voted", "1", time()+86400);
+				}
 				// And last but not least, return a handled variable since it was a valid vote
 				$this->handled = 1;
 			}
