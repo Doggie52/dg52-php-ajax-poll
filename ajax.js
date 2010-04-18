@@ -8,19 +8,6 @@
 	
 var xmlHttp
 
-function goPage(str)
-{
-	xmlHttp=GetXmlHttpObject();
-	if (xmlHttp==null)
-	{
-		alert ("Your browser does not support AJAX!");
-		return;
-	}
-	xmlHttp.onreadystatechange=switchPage;
-	xmlHttp.open("GET", str, true);
-	xmlHttp.send(null);
-}
-
 function placeVote()
 {
 	xmlHttp=GetXmlHttpObject();
@@ -48,16 +35,6 @@ function showResult()
 	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
 	{
 		document.getElementById("resultDiv").innerHTML=xmlHttp.responseText;
-	} else {
-		document.getElementById("resultDiv").innerHTML="<img src=\"themes/images/loading.gif\" />";
-	}
-}
-
-function switchPage() 
-{
-	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-	{
-		document.getElementById("mainDiv").innerHTML=xmlHttp.responseText;
 	} else {
 		document.getElementById("resultDiv").innerHTML="<img src=\"themes/images/loading.gif\" />";
 	}

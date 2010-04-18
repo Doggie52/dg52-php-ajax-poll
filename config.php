@@ -19,12 +19,12 @@
 	$config['dbPassw']	= "password";
 	
 	// The location of your root directory, system directory and themes directory
-	define("POLL_BASE_DIR", $_SERVER['DOCUMENT_ROOT']."/");
-	define("POLL_SYS_DIR", $_SERVER['DOCUMENT_ROOT']."/system/");
-	define("POLL_THEME_DIR", $_SERVER['DOCUMENT_ROOT']."/themes/");
+	define("POLL_BASE_DIR", 	$_SERVER['DOCUMENT_ROOT']."/");
+	define("POLL_SYS_DIR", 		$_SERVER['DOCUMENT_ROOT']."/system/");
+	define("POLL_THEME_DIR", 	$_SERVER['DOCUMENT_ROOT']."/themes/");
 	
 	// Turn the debug-feature on or off (TRUE or FALSE)
 	// The debug-feature spews info about SQL queries and disables cookies after voting
-	define("POLL_DEBUG", FALSE);
+	define("POLL_DEBUG", 		FALSE);
 
 ?>
