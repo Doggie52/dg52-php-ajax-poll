@@ -7,10 +7,10 @@
 			URL: www.douglasstridsberg.com
 	*/
 
-// Includes
-include("config.php");
-include(POLL_SYS_DIR."includes/class.php");
-include(POLL_SYS_DIR."includes/class_template.php");
+// Requirements
+require("config.php");
+require(POLL_SYS_DIR."includes/class.php");
+require(POLL_SYS_DIR."includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
