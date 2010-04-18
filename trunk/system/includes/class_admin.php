@@ -62,13 +62,27 @@ class session extends DB {
 class admin extends DB {
 
 	// Displays the form for various things
-	function form($type, $id){
+	function form($type, $id = NULL){
 		switch($type){
 		case "add":
 			// Make $template object global
 			global $template;
 				// Initialize the add-form
 				$template->printTemplate("admin/addform");
+		break;
+		case "list":
+			// Fetch the polls
+			$query = $this->query("SELECT * FROM `questions`");
+			// Make $template object global
+			global $template;
+			// Start the list
+			echo "<ul>\n";
+			// For every poll question show a row
+			while($poll = $this->fetch_array($query)) {
+				$template->printTemplate("admin/pollrow", $poll);
+			}
+			// End the list
+			echo "\n</ul>";
 		break;
 		case "edit":
 			if($id){
@@ -100,7 +114,7 @@ class admin extends DB {
 	}
 	
 	// Handles the form-input
-	function handle($type, $id){
+	function handle($type, $id = NULL){
 		switch($type){
 		case "add":
 			// Make sure the form has been submitted with necessary values

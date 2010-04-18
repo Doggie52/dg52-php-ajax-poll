@@ -58,20 +58,34 @@ class DB {
 		$query = mysql_query($sql) or die(mysql_error());
 		
 		if(POLL_DEBUG) {
-			echo "<code>$query</code><br />";
+			echo "<code>$sql</code><br />";
 		}
+		
+		return $query;
 	}
 	
 	// Fetch results from SELECT
 	function fetch($sql) {
 		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
-		return $array;
 		
 		if(POLL_DEBUG) {
-			echo "<code>$query</code><br />";
+			echo "<code>$sql</code><br />";
 			echo "<code>".print_r($array)."</code><br />";
 		}
+		
+		return $array;
+	}
+	
+	// Only the mysql_fetch_array for times when fetching repeated results from same query
+	function fetch_array($query) {
+		$array = mysql_fetch_array($query);
+		
+		if(POLL_DEBUG) {
+			echo "<code>".print_r($array)."</code><br />";
+		}
+		
+		return $array;
 	}
 }
 

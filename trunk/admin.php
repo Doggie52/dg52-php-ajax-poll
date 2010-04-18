@@ -59,7 +59,10 @@ include(POLL_SYS_DIR."includes/class_template.php");
 		if($display){
 			switch($display){
 				case "add":
-					$admin->form("add", '0');
+					$admin->form("add");
+				break;
+				case "list":
+					$admin->form("list");
 				break;
 				case "edit":
 					$admin->form("edit", $id);
