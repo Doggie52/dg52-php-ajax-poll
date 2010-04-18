@@ -158,7 +158,7 @@ class admin extends DB {
 					// Echo output
 					echo "<p>Poll question with ID <code>$id</code> was deleted!</p>";
 				}else{
-					// Output an "error"
+					// Output an error
 					echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
 				}
 			}else{
