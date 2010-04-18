@@ -126,9 +126,6 @@ div.admin-container h1.header {
 	padding-top: 20px;
 	text-align: center;
 	padding-bottom: 20px;
-	border-bottom: 2px dashed #a7a7a7;
-	border-top: 2px dashed #a7a7a7;
-	background: rgba(240,237,235,0.2);
 }
 	
 #menu li {
@@ -249,9 +246,9 @@ div.admin-container h1.header {
 	/*********************************
 			LOGIN FORM
 	*********************************/
-	
 	#login {
-		background: rgba(240,237,235,0.25);
+		display: none;
+			background: rgba(240,237,235,0.25);
 		border-top: 1px solid rgba(240,237,235,0.6);
 		border-bottom: 1px solid rgba(240,237,235,0.6);
 	}

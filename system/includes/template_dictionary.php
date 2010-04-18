@@ -21,7 +21,9 @@
 		// HTML-includes
 		"CSS" 			=> incFile(POLL_BASE_URL."themes/styles.css"),
 		"AJAX" 			=> incFile(POLL_BASE_URL."ajax.js"),
-		"JQUERY"		=> incFile("http://code.jquery.com/jquery-1.4.2.min.js"),
+		"JQUERY"		   => incFile("themes/js/jquery-1.4.2.min.js"),
+		"JQUERYUI"     => incFile("themes/js/jquery-ui-1.8.custom.min.js"),
+		"EFFECTS"      => incFile("themes/js/effects.js"),
 		"FORMJS" 		=> incFile(POLL_BASE_URL."form.js"),
 		
 		// Session-related

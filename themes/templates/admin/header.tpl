@@ -1,10 +1,12 @@
 <html>
 	<head>
 		<title>%TITLE%</title>
+		%CSS%
 		%AJAX%
 		%FORMJS%
 		%JQUERY%
-		%CSS%
+		%JQUERYUI%
+		%EFFECTS%
 	</head>
 	<body>
 		<div class="admin-container">
