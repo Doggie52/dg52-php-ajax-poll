@@ -18,9 +18,11 @@
 	$config['dbUser']	= "username";
 	$config['dbPassw']	= "password";
 	
-	// The location of your root directory, system directory and themes directory
+	// The location of your root directory (do not forget trailing slash!), system directory and themes directory
+	define("POLL_BASE_URL",		"http://example.com/");
 	define("POLL_BASE_DIR", 	$_SERVER['DOCUMENT_ROOT']."/");
 	define("POLL_SYS_DIR", 		$_SERVER['DOCUMENT_ROOT']."/system/");
+	define("POLL_ADM_DIR",		$_SERVER['DOCUMENT_ROOT']."/admin/");
 	define("POLL_THEME_DIR", 	$_SERVER['DOCUMENT_ROOT']."/themes/");
 	
 	// Turn the debug-feature on or off (TRUE or FALSE)

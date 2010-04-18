@@ -7,11 +7,11 @@
 			URL: www.douglasstridsberg.com
 	*/
 
-// Includes
-include("config.php");
-include(POLL_SYS_DIR."includes/class.php");
-include(POLL_SYS_DIR."includes/class_admin.php");
-include(POLL_SYS_DIR."includes/class_template.php");
+// Requirements
+require("config.php");
+require(POLL_SYS_DIR."includes/class.php");
+require(POLL_ADM_DIR."includes/class_admin.php");
+require(POLL_SYS_DIR."includes/class_template.php");
 
 	// Creates the DB connection
 	$DB = new DB();
@@ -29,7 +29,7 @@ include(POLL_SYS_DIR."includes/class_template.php");
 				$session->checkSession();
 		
 				// Shows the form if the adminkey is invalid
-				if($session->adminKey==FALSE){
+				if($session->adminKey==FALSE) {
 						// Output the header template
 						$template->printTemplate("admin/header");
 						
@@ -39,64 +39,8 @@ include(POLL_SYS_DIR."includes/class_template.php");
 						// Output the footer template
 						$template->printTemplate("admin/footer");
 					exit;
+				} else {
+					// A not so user-friendly way of redirecting to the admin CP
+					header("Location: /admin/index.php");
 				}
-
-	// Get the URL variables
-	$display  = $_GET['display'];
-	$handle	  = $_GET['handle'];
-	$id		  = $_GET['id'];
-	
-		// Create the admin-object
-		$admin = new admin();
-		
-			// Output the header template
-			$template->printTemplate("admin/header");
-						
-			// Output the adminpanel header
-			$template->printTemplate("admin/panelheader");
-	
-		// Start the displayswitch if the variable is available
-		if($display){
-			switch($display){
-				case "add":
-					$admin->form("add");
-				break;
-				case "list":
-					$admin->form("list");
-				break;
-				case "edit":
-					$admin->form("edit", $id);
-				break;
-				case "delete":
-					$admin->form("delete", $id);
-				break;
-				default:
-					echo "<p>Undefined display variable!</p>";
-			}
-		// Else if the handle variable is available start the handleswitch
-		}elseif($handle){
-			switch($handle){
-				case "add":
-					$admin->handle("add");
-				break;
-				case "edit":
-					$admin->handle("edit", $id);
-				break;
-				case "delete":
-					$admin->handle("delete", $id);
-				break;
-				case "logout":
-					if($session->loseSession()){
-						echo "<meta http-equiv=\"refresh\" content=\"2;url=admin.php\">";
-						echo "<p>Successfully logged out!</p>";
-					}
-				break;
-				default:
-					echo "<p>Undefined handle variable!</p>";
-			}
-		}
-		
-	// Output the footer template
-	$template->printTemplate("admin/footer");
-
 ?>

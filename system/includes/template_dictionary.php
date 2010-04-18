@@ -19,10 +19,10 @@
 		"DATE" 			=> date(DATE_RFC822),
 		
 		// HTML-includes
-		"CSS" 			=> incFile("themes/styles.css"),
-		"AJAX" 			=> incFile("ajax.js"),
+		"CSS" 			=> incFile(POLL_BASE_URL."themes/styles.css"),
+		"AJAX" 			=> incFile(POLL_BASE_URL."ajax.js"),
 		"JQUERY"		=> incFile("http://code.jquery.com/jquery-1.4.2.min.js"),
-		"FORMJS" 		=> incFile("form.js"),
+		"FORMJS" 		=> incFile(POLL_BASE_URL."form.js"),
 		
 		// Session-related
 		"ADMINKEY" 		=> $_SESSION['adminKey'],
