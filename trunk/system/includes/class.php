@@ -104,9 +104,9 @@ class poll extends DB {
 	// Displays the default poll
 	function displayPoll() {
 		// Fetch the poll
-		$question = $this->fetch("SELECT * FROM `questions` WHERE `show` = '1' LIMIT 1");
+		$question = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
 		// Fetch the answers
-		$answer = $this->fetch("SELECT * FROM `results` WHERE `id` = '".$question['id']."'");
+		$answer = $this->fetch("SELECT * FROM `results` WHERE `id` = ".$question['id']."");
 		
 			// Do the math to get the percentage
 			// Avoid possible warnings when dividing by zero
@@ -135,7 +135,7 @@ class poll extends DB {
 	// Displays the voting module
 	function displayVote() {
 		// Fetch the questions
-		$questions = $this->fetch("SELECT * FROM `questions` WHERE `show` = '1' LIMIT 1");
+		$questions = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
 			
 			// Echo poll header
 			echo "<h2>".$questions['question']."</h2>
@@ -180,7 +180,7 @@ class poll extends DB {
 			// The answername is there, continue
 			
 				// Check current number of votes
-				$vote_array = $this->fetch("SELECT `".$answer_column."` FROM `results` WHERE `id` = '".$question_id."'");
+				$vote_array = $this->fetch("SELECT `".$answer_column."` FROM `results` WHERE `id` = ".$question_id."");
 				$numvotes = $vote_array[$answer_column];
 				
 					// Do the maths
@@ -191,7 +191,7 @@ class poll extends DB {
 					}
 				  
 				// Update the database
-				$this->query("UPDATE `results` SET `".$answer_column."` = '".$numvotes."' WHERE `id` = '".$question_id."'");
+				$this->query("UPDATE `results` SET `".$answer_column."` = ".$numvotes." WHERE `id` = ".$question_id."");
 				// Set a cookie for 24hrs if debug is off
 				if(!POLL_DEBUG) {
 					setcookie("voted", "1", time()+86400);
