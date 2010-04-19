@@ -9,10 +9,15 @@
 
 function secure($string) {
 	// Secures $string using various methods
+		// Strip PHP and HTML tags
 		$string = strip_tags($string);
+		// Turn HTML special characters into ASCII values
 		$string = htmlspecialchars($string);
+		// Remove whitespace before and after string
 		$string = trim($string);
+		// Strips slashes and unquotes a quoted string
 		$string = stripslashes($string);
+		// Escapes a mysql query
 		$string = mysql_real_escape_string($string);
 	return $string;
 }
@@ -55,6 +60,7 @@ class DB {
 	
 	// A normal query, for DELETE and UPDATE along with other stuff
 	function query($sql) {
+		$sql = secure($sql);
 		$query = mysql_query($sql) or die(mysql_error());
 		
 		if(POLL_DEBUG) {
@@ -66,6 +72,7 @@ class DB {
 	
 	// Fetch results from SELECT
 	function fetch($sql) {
+		$sql = secure($sql);
 		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
 		
