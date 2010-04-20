@@ -5,7 +5,18 @@
 
 In coding projects, milestones act as goals or objectives which the involved coders strive to achieve. Our past milestones and their revision-number are listed here amongst future milestones and features included.
 
-
+= Future Milestones =
+=== version 1.0 ===
+ * Anticipated features
+  * Modern, usable and sleek main UI
+  * ACP with modern and usable UI
+  * Ability to add several polls and choose which to show
+  * Ability to skin and style all elements of the poll
+=== version 2.0 ===
+ * Probable features
+  * Ability to switch styles
+  * More advanced template engine (supporting more PHP syntax)
+  * Graphical representation of results
 = Past Milestones =
 === Project Start ===
  * revision: 1
