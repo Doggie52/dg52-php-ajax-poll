@@ -67,6 +67,9 @@ require(POLL_SYS_DIR."includes/class_template.php");
 				case "edit":
 					$admin->handle("edit", $id);
 				break;
+				case "show":
+					$admin->handle("show", $id);
+				break;
 				case "delete":
 					$admin->handle("delete", $id);
 				break;
