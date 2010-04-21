@@ -116,6 +116,7 @@ class admin extends DB {
 	// Handles the form-input
 	function handle($type, $id = NULL){
 		switch($type){
+
 		case "add":
 			// Make sure the form has been submitted with necessary values
 			if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2']){
@@ -138,49 +139,69 @@ class admin extends DB {
 				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
 		break;
+
 		case "edit":
-		if($id){
-			// Make sure the form has been submitted with necessary values
-			if($_POST['submit']){
-				// Update the row
-				$this->query("
-					UPDATE `questions`
-						(question, a1, a2, a3, a4, a5)
-					VALUES (
-						'".$_POST['question']."',
-						'".$_POST['a1']."',
-						'".$_POST['a2']."',
-						'".$_POST['a3']."',
-						'".$_POST['a4']."',
-						'".$_POST['a5']."'
-					)
-					WHERE `id` = ".$id."
-				");
-			}else{
-				// Output an error
-				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
-			}
-		}
-		break;
-		case "delete":
-		if($id){
-			// Make sure "delete" was set to 1 (yes)
-			if($_POST['submit']){
-				if($_POST['delete'] == 1){
-					// Delete the row
-					$this->query("DELETE * FROM `questions` WHERE `id` = ".$id."");
-					// Echo output
-					echo "<p>Poll question with ID <code>$id</code> was deleted!</p>";
+			if($id){
+				// Make sure the form has been submitted with necessary values
+				if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2']){
+					// Update the row
+					$this->query("
+						UPDATE `questions`
+							(question, a1, a2, a3, a4, a5)
+						VALUES (
+							'".$_POST['question']."',
+							'".$_POST['a1']."',
+							'".$_POST['a2']."',
+							'".$_POST['a3']."',
+							'".$_POST['a4']."',
+							'".$_POST['a5']."'
+						)
+						WHERE `id` = ".$id."
+					");
 				}else{
 					// Output an error
-					echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
+					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 				}
-			}else{
-				// Output an error
-				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
-		}
 		break;
+
+		case "show":
+			// Make sure the form has been submitted with the necessary ID
+			if($id){
+				// Select the poll that previously was shown
+				$oldshow = "SELECT `id` FROM `questions` WHERE `show` = 1";
+				$oldquery = $this->fetch($oldshow);
+				
+				// Hide the selected poll
+				$hideold = "UPDATE `questions` SET `show` = 0 WHERE `id` = ".$oldquery['id']."";
+				$oldquery = $this->query($hideold);
+				
+				// Show the new poll selected by the user
+				$newshow = "UPDATE `questions` SET `show` = 1 WHERE `id` = ".$id."";
+				$newquery = $this->query($newshow);
+			}
+		break;
+
+		case "delete":
+			if($id){
+				// Make sure "delete" was set to 1 (yes)
+				if($_POST['submit']){
+					if($_POST['delete'] == 1){
+						// Delete the row
+						$this->query("DELETE * FROM `questions` WHERE `id` = ".$id."");
+						// Echo output
+						echo "<p>Poll question with ID <code>$id</code> was deleted!</p>";
+					}else{
+						// Output an error
+						echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
+					}
+				}else{
+					// Output an error
+					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
+				}
+			}
+		break;
+
 		default:
 			echo "<div id=\"error\"><p>Missing handle-variable!</p></div>";
 		}
