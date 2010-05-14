@@ -89,7 +89,7 @@ class admin extends DB {
 				// Fetch the values in the database matching $id
 				$questions = $this->fetch("SELECT * FROM `questions` WHERE `id` = ".$id."");
 				// Initialize the edit-form
-				echo "<form name=\"edit\" action=\"admin.php?handle=".$type."&id=".$id."\">";
+				echo "<form name=\"edit\" action=\"index.php?handle=edit&id=".$id."\">";
 				// Make $template object global and print edit form
 				global $template;
 					$template->printTemplate("admin/editform", $questions);
@@ -101,7 +101,7 @@ class admin extends DB {
 				// Fetch the values in the database matching $id
 				$poll = $this->fetch("SELECT `question` FROM `questions` WHERE `id` = ".$id."");
 				// Initialize the confirmation question
-				echo "<form name=\"confirm_delete\" method=\"post\" action=\"admin.php?handle=".$type."&id=".$id."\">";
+				echo "<form name=\"confirm_delete\" method=\"post\" action=\"admin.php?handle=delete&id=".$id."\">";
 				// Make $template object global and print delete form
 				global $template;
 					$template->printTemplate("admin/deleteform", $poll);
@@ -123,8 +123,9 @@ class admin extends DB {
 				// Add a row to the questions and an empty row to the results
 				$this->query("
 					INSERT INTO `questions`
-						(question, a1, a2, a3, a4, a5)
+						(`show`, `question`, `a1`, `a2`, `a3`, `a4`, `a5`)
 					VALUES (
+						'".$_POST['show']."',
 						'".$_POST['question']."',
 						'".$_POST['a1']."',
 						'".$_POST['a2']."',
@@ -134,6 +135,8 @@ class admin extends DB {
 					)
 				");
 				$this->query("INSERT INTO `results` (a1, a2, a3, a4, a5) VALUES (0, 0, 0, 0, 0)");
+				// Output success
+				echo "<p>Poll was successfully added!</p>";
 			}else{
 				// Output an error
 				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
@@ -158,6 +161,8 @@ class admin extends DB {
 						)
 						WHERE `id` = ".$id."
 					");
+					// Output success
+					echo "<p>Poll was successfully edited!</p>";
 				}else{
 					// Output an error
 					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
@@ -179,22 +184,20 @@ class admin extends DB {
 				// Show the new poll selected by the user
 				$newshow = "UPDATE `questions` SET `show` = 1 WHERE `id` = ".$id."";
 				$newquery = $this->query($newshow);
+				
+				// Output success
+				echo "<p>Poll was successfully set as the main poll!</p>";
 			}
 		break;
 
 		case "delete":
 			if($id){
-				// Make sure "delete" was set to 1 (yes)
+				// Make sure the button was pressed
 				if($_POST['submit']){
-					if($_POST['delete'] == 1){
-						// Delete the row
-						$this->query("DELETE * FROM `questions` WHERE `id` = ".$id."");
-						// Echo output
-						echo "<p>Poll question with ID <code>$id</code> was deleted!</p>";
-					}else{
-						// Output an error
-						echo "<div id=\"error\"><p>Post was not deleted.</p></div>";
-					}
+					// Delete the row
+					$this->query("DELETE * FROM `questions` WHERE `id` = ".$id."");
+					// Echo output
+					echo "<p>Poll question (ID <code>$id</code>) was successfully deleted!</p>";
 				}else{
 					// Output an error
 					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
