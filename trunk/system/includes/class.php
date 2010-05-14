@@ -60,7 +60,6 @@ class DB {
 	
 	// A normal query, for DELETE and UPDATE along with other stuff
 	function query($sql) {
-		$sql = secure($sql);
 		$query = mysql_query($sql) or die(mysql_error());
 		
 		if(POLL_DEBUG) {
@@ -72,7 +71,6 @@ class DB {
 	
 	// Fetch results from SELECT
 	function fetch($sql) {
-		$sql = secure($sql);
 		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
 		

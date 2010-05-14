@@ -30,7 +30,9 @@
 		"ADMINKEY" 		=> $_SESSION['adminKey'],
 		
 		// Dynamic form entries
+		"QUESTIONID"	=> $additionalArray['id'],
 		"QUESTION"		=> $additionalArray['question'],
+		"SHOW"			=> "&nbsp;&nbsp;",
 		"ANSWER1"		=> $additionalArray['a1'],
 		"ANSWER2"		=> $additionalArray['a2'],
 		"ANSWER3"		=> $additionalArray['a3'],
@@ -43,6 +45,11 @@
 		"ANSWERPCRT5"	=> $additionalArray['pcrta5'],
 			
 	);
+	
+	// In order for the list of poll questions show which one is shown, the following must be set
+	if($additionalArray['show']) {
+		$dictionary['SHOW'] = "X";
+	}
 	
 	// In order for the poll answers that aren't available to not show, the following must be set
 	if(!$additionalArray['extra3']) {
