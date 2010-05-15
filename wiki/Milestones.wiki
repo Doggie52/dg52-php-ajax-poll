@@ -31,3 +31,6 @@ Beta and release-candidate due the <s>1st of May 2010</s> (the release has been 
 === Major re-structure ===
  * revision: 95
  * date: Apr 15, 2010
+=== New UI ===
+ * revision: 124
+ * date: May 15, 2010
