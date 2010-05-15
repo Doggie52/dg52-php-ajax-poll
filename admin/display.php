@@ -7,6 +7,8 @@
 			URL: www.douglasstridsberg.com
 	*/
 
+// A separate file for handling the displaying of various forms related to the polls, for use together with AJAX
+
 // Require these only if the file is being loaded on its own
 require_once("../config.php");
 require_once(POLL_SYS_DIR."includes/class.php");
