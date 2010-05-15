@@ -132,34 +132,23 @@ class poll extends DB {
 	
 	// Displays the voting module
 	function displayVote() {
-		// Fetch the questions
-		$questions = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
+		// Fetch the question that is set to show and grab its answers
+		$answer = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
 			
-			// Echo poll header
-			echo "<h2>".$questions['question']."</h2>
-			<div class=\"flower\">&nbsp;</div>";
-			
-				// Start the form
-				echo "\n<form name=\"vote\">
-				<p>
-				<input type=\"hidden\" id=\"voteid\" value=\"".$questions['id']."\" />
-				<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a1\" />".$questions['a1']."</p>
-				<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a2\" />".$questions['a2']."</p>";
-					// If extra answers are available, display
-					// If a third answer is not available, the others aren't either
-					if ($questions['a3']){
-						echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a3\" />".$questions['a3']."</p>";
-						if ($questions['a4']){
-							echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a4\" />".$questions['a4']."</p>";
-							if ($questions['a5']){
-								echo "\n<p><input type=\"radio\" name=\"voteradio\" class=\"styled\" value=\"a5\" />".$questions['a5']."</p>";
-							}
-						}
-					}
-				echo "\n<input type=\"button\" onclick=\"placeVote()\" value=\"Vote\" />
-				</form>";
-			// Print the result container for future information
-			echo "\n<div id=\"resultDiv\"></div>";
+			// If extra answers are available, display
+			if($answer['a3']) {
+				$answer['extra3'] = "block";
+			}
+			if($answer['a4']) {
+				$answer['extra4'] = "block";
+			}
+			if($answer['a5']) {
+				$answer['extra5'] = "block";
+			}
+
+			// Make $template object global and output vote
+			global $template;
+				$template->printTemplate("displayvote", $answer);
 	}
 	
 	// Processes the vote
