@@ -12,21 +12,23 @@
 
 @import url("reset.css");
 
+@font-face {
+	font-family: 'MuseoSans500';
+	src: url('fonts/MuseoSans_500.eot');
+	src: local('Museo Sans'), local('MuseoSans-500'), url('fonts/MuseoSans_500.woff') format('woff'), url('fonts/MuseoSans_500.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'CandelaBook';
+	src: url('fonts/CandelaBook.eot');
+	src: local('Candela'), local('Candela-Book'), url('fonts/CandelaBook.woff') format('woff'), url('fonts/CandelaBook.ttf') format('truetype'), url('CandelaBook.svg#Candela-Book') format('svg');
+}
+
 body {
-	font: 1em Georgia;
+	font: 1em "MuseoSans500", Georgia;
 	background: #dfd5c5 url('images/tile.gif');
 	color: #48433d;
 	margin: 0px;
-}
-
-.radio {
-	background: url('images/radio.png') no-repeat;
-	width: 19px;
-	height: 25px;
-	padding: 0 5px 0 0;
-	display: block;
-	clear: left;
-	float: left;
 }
 
 a {
@@ -67,6 +69,10 @@ a {
 		display: block;
 	}
 	
+.vote {
+	margin-top: 20px;
+}
+
 .flower {
 	background: url('images/flower.png') no-repeat;
 	height: 77px;
@@ -82,24 +88,10 @@ a {
 	margin: auto;
 	color: red;
 }
-
-
 	
 /*********************************
 		ADMIN PANEL
 *********************************/
-
-@font-face {
-	font-family: 'MuseoSans500';
-	src: url('fonts/MuseoSans_500.eot');
-	src: local('Museo Sans'), local('MuseoSans-500'), url('fonts/MuseoSans_500.woff') format('woff'), url('fonts/MuseoSans_500.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'CandelaBook';
-	src: url('fonts/CandelaBook.eot');
-	src: local('Candela'), local('Candela-Book'), url('fonts/CandelaBook.woff') format('woff'), url('fonts/CandelaBook.ttf') format('truetype'), url('CandelaBook.svg#Candela-Book') format('svg');
-}
 
 div.admin-container {
 		font-family: MuseoSans500, Georgia, "Times New Roman", Times, serif;
@@ -111,8 +103,8 @@ div.admin-container {
 		text-shadow: #f8fcee 0 1px 1px;
 
 	}
-
-div.admin-container h1.header {
+	
+	h1.header {
 	text-align: center;
 	color: #698695;
 	font: 3em CandelaBook, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
@@ -201,7 +193,7 @@ div.admin-container h1.header {
 		border: 1px solid #a1a1a1;
 	}
 	
-	div.admin-container form input.submit {
+	input.submit {
 		-moz-appearance:none;
 		-moz-border-radius:5px;
 		-moz-box-shadow:0 -1px 0 rgba(0, 0, 0, 0.3), 1px 0 0 rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.5), -1px 0 0 		rgba(0, 0, 0, 0.3), 0 2px 0 rgba(0, 0, 0, 0.15);
@@ -248,7 +240,7 @@ div.admin-container h1.header {
 	*********************************/
 	#login {
 		display: none;
-			background: rgba(240,237,235,0.25);
+		background: rgba(240,237,235,0.25);
 		border-top: 1px solid rgba(240,237,235,0.6);
 		border-bottom: 1px solid rgba(240,237,235,0.6);
 	}

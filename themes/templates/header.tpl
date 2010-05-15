@@ -4,6 +4,10 @@
 		%AJAX%
 		%FORMJS%
 		%CSS%
+		%JQUERY%
+		%UNIFORM_JS%
+		%UNIFORM_CSS%
+		%EFFECTS%
 	</head>
 	<body>
 		<div class="container">

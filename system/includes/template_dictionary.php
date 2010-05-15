@@ -25,6 +25,8 @@
 		"JQUERYUI"		=> incFile("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"),
 		"EFFECTS"		=> incFile(POLL_BASE_URL."themes/js/effects.js"),
 		"FORMJS" 		=> incFile(POLL_BASE_URL."themes/js/form.js"),
+		"UNIFORM_JS"	=> incFile(POLL_BASE_URL."themes/js/jquery.uniform.min.js"),
+		"UNIFORM_CSS"	=> incFile(POLL_BASE_URL."themes/uniform.default.css"),
 		
 		// Session-related
 		"ADMINKEY" 		=> $_SESSION['adminKey'],
