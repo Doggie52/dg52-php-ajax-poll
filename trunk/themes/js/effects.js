@@ -18,6 +18,9 @@ $(document).ready(function() {
    
    //Slide down the login form
    $("#login").slideDown(1000);
+   
+   //Apply the uniform JS
+   $("input:checkbox, input:radio, input:file").uniform();
 
    
    /*SPECIFIED POINT. ALL JAVASCRIPT IN BETWEEN THIS AND
