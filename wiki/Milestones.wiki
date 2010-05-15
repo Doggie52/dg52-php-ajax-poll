@@ -5,14 +5,17 @@
 
 In coding projects, milestones act as goals or objectives which the involved coders strive to achieve. Our past milestones and their revision-number are listed here amongst future milestones and features included.
 
-= Future Milestones =
+= Current Version =
 === version 1.0 codename "Clarion" ===
+*The run-up for the final release has started, <a href="http://code.google.com/p/dg52-php-ajax-poll/downloads/list">Downloads</a> will be updated after every new beta or release-candiate.*
+
 Beta and release-candidate due the <s>1st of May 2010</s> (the release has been delayed, expect it no sooner than the end of May), release 1.0 of dG52 PHP and AJAX Poll will be a fully-functioning suite for polling with an advanced and usable admin control panel (ACP).
  * Anticipated features
   * Modern, usable and sleek main UI
   * ACP with modern and usable UI
   * Ability to add several polls and choose which to show
   * Ability to skin and style all elements of the poll
+= Future Milestones =
 === version 2.0 codename "Dovetail" ===
  * Probable features
   * Ability to switch styles
