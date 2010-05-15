@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 2.11.8.1deb5+lenny3
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Feb 10, 2010 at 09:21 PM
--- Server version: 5.0.51
--- PHP Version: 5.2.6-1+lenny4
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 
@@ -69,7 +60,7 @@ INSERT INTO `questions` (`id`, `show`, `question`, `a1`, `a2`, `a3`, `a4`, `a5`)
 --
 
 CREATE TABLE IF NOT EXISTS `results` (
-  `id` int(11) NOT NULL default '1' COMMENT 'Stores the ID of the question which the results correspond to.',
+  `id` int(11) NOT NULL AUTO_INCREMENT default '1' COMMENT 'Stores the ID of the question which the results correspond to.',
   `a1` int(11) default NULL,
   `a2` int(11) default NULL,
   `a3` int(11) default NULL,
