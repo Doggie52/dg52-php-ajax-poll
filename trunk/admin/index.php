@@ -58,30 +58,9 @@ require(POLL_SYS_DIR."includes/class_template.php");
 		// Include the display-file if the display variable is available
 		if($display) {
 			include("display.php");
-		// Else if the handle variable is available start the handleswitch
+		// Else if the handle variable is available include the handle-file
 		} elseif($handle) {
-			switch($handle){
-				case "add":
-					$admin->handle("add");
-				break;
-				case "edit":
-					$admin->handle("edit", $id);
-				break;
-				case "show":
-					$admin->handle("show", $id);
-				break;
-				case "delete":
-					$admin->handle("delete", $id);
-				break;
-				case "logout":
-					if($session->loseSession()){
-						echo "<meta http-equiv=\"refresh\" content=\"2;url=".POLL_BASE_URL."admin.php\">";
-						echo "<p>Successfully logged out!</p>";
-					}
-				break;
-				default:
-					echo "<p>Undefined handle variable!</p>";
-			}
+			include("handle.php");
 		}
 		
 	// Output the footer template

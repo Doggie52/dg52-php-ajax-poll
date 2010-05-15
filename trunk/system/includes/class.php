@@ -125,9 +125,9 @@ class poll extends DB {
 				$question['extra5'] = "block";
 			}
 			
-				// Make $template object global and output results
-				global $template;
-					$template->printTemplate("results", $question);
+			// Make $template object global and output results
+			global $template;
+				$template->printTemplate("results", $question);
 	}
 	
 	// Displays the voting module
