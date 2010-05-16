@@ -185,7 +185,7 @@ class poll extends DB
 		}
 		else
 		{
-		// The cookie is not set, continue
+			// The cookie is not set, continue
 			// Check for invalid stuff
 			$answer_array = array("a1", "a2", "a3", "a4", "a5");
 			if(!in_array($answer_column, $answer_array))
@@ -194,7 +194,7 @@ class poll extends DB
 			}
 			else
 			{
-			// The answername is there, continue
+				// The answername is there, continue
 				// Check current number of votes
 				$vote_array = $this->fetch("SELECT `".$answer_column."` FROM `results` WHERE `id` = ".$question_id."");
 				$numvotes = $vote_array[$answer_column];

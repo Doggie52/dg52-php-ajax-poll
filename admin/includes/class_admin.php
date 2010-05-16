@@ -199,11 +199,18 @@ class admin extends DB
 			{
 				// Select the poll that previously was shown
 				$oldshow = "SELECT `id` FROM `questions` WHERE `show` = 1";
-				$oldquery = $this->fetch($oldshow);
-				
-				// Hide the selected poll
-				$hideold = "UPDATE `questions` SET `show` = 0 WHERE `id` = ".$oldquery['id']."";
-				$oldquery = $this->query($hideold);
+				$oldquery = $this->query($oldshow);
+				// If there actually are any shown polls
+				if(!empty($oldquery))
+				{
+					while($oldfetch = $this->fetch_array($oldquery))
+					{
+						// Hide each shown poll
+						// There should be only one, but just in case there are more we hide all of them
+						$hideold = "UPDATE `questions` SET `show` = 0 WHERE `id` = ".$oldfetch['id']."";
+						$hideoldquery = $this->query($hideold);
+					}
+				}
 				
 				// Show the new poll selected by the user
 				$newshow = "UPDATE `questions` SET `show` = 1 WHERE `id` = ".$id."";
