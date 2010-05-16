@@ -15,7 +15,8 @@ require_once(POLL_SYS_DIR."includes/class.php");
 require_once(POLL_ADM_DIR."includes/class_admin.php");
 require_once(POLL_SYS_DIR."includes/class_template.php");
 
-switch($display){
+switch($display)
+{
 	case "add":
 		$admin->form("add");
 	break;

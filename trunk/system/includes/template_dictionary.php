@@ -49,26 +49,36 @@
 	);
 	
 	// In order for the list of poll questions show which one is shown, the following must be set
-	if($additionalArray['show']) {
+	if($additionalArray['show'])
+	{
 		$dictionary['SHOW'] = "X";
 	}
 	
 	// In order for the poll answers that aren't available to not show, the following must be set
-	if(!$additionalArray['extra3']) {
+	if(!$additionalArray['extra3'])
+	{
 		$dictionary['EXTRAANSWER3']	= "none";
-	}else{
+	}
+	else
+	{
 		$dictionary['EXTRAANSWER3']	= $additionalArray['extra3'];
 	}
 	
-	if(!$additionalArray['extra4']) {
+	if(!$additionalArray['extra4'])
+	{
 		$dictionary['EXTRAANSWER4']	= "none";
-	}else{
+	}
+	else
+	{
 		$dictionary['EXTRAANSWER4']	= $additionalArray['extra4'];
 	}
 	
-	if(!$additionalArray['extra5']) {
+	if(!$additionalArray['extra5'])
+	{
 		$dictionary['EXTRAANSWER5']	= "none";
-	}else{
+	}
+	else
+	{
 		$dictionary['EXTRAANSWER5']	= $additionalArray['extra5'];
 	}
 

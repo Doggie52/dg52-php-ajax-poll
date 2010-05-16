@@ -29,7 +29,8 @@ require(POLL_SYS_DIR."includes/class_template.php");
 				$session->checkSession();
 		
 				// Shows the form if the adminkey is invalid
-				if($session->adminKey==FALSE){
+				if($session->adminKey==FALSE)
+				{
 						// Output the header template
 						$template->printTemplate("admin/header");
 						
@@ -56,10 +57,13 @@ require(POLL_SYS_DIR."includes/class_template.php");
 			$template->printTemplate("admin/panelheader");
 	
 		// Include the display-file if the display variable is available
-		if($display) {
+		if($display)
+		{
 			include("display.php");
 		// Else if the handle variable is available include the handle-file
-		} elseif($handle) {
+		}
+		elseif($handle)
+		{
 			include("handle.php");
 		}
 		

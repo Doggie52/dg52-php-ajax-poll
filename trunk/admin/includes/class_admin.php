@@ -7,63 +7,77 @@
 			URL: www.douglasstridsberg.com
 	*/
 
-class session extends DB {
+class session extends DB
+{
 
 	// Define vars
 	var $adminKey;
 	
 	// The constructor which starts a session
-	function session(){
+	function session()
+	{
 		session_start();
 	}
 	
 	// Set the valid adminkey
-	function setSession(){
+	function setSession()
+	{
 		$_SESSION['adminKey'] = md5($_SERVER['REMOTE_ADDR']."salt");
 	}
 	
 	// Check if a valid adminkey is present
-	function checkSession(){
+	function checkSession()
+	{
 		if($_SESSION['adminKey'] == md5($_SERVER['REMOTE_ADDR']."salt")){
 			$this->adminKey = TRUE;
-		}else{
+		}
+		else
+		{
 			$this->adminKey = FALSE;
 		}
 	}
 	
 	// Unset the adminkey
-	function loseSession(){
+	function loseSession()
+	{
 		unset($_SESSION['adminKey']);
 		return 1;
 	}
 	
 	// Handle the log-in:ing
-	function handleLogin(){
+	function handleLogin()
+	{
 		// Has the form been processed?
-		if($_POST['login']){
+		if($_POST['login'])
+		{
 			// Yes, it has, continue
 			
 			// Get username and password, hashed, from the database
 			$adminDetails = $this->fetch("SELECT `username`, `password` FROM `admin`");
 				// Check if these are identical to the input
-				if ($adminDetails['username'] == md5($_POST['username'])
+				if($adminDetails['username'] == md5($_POST['username'])
 					&&
 					$adminDetails['password'] == md5($_POST['password']))
 				{
 					// They are, so set a session
 					$this->setSession();
-				}else{
+				}
+				else
+				{
 					echo "<div id=\"error\"><p>Incorrect username or password!</p></div>";
 				}
 		}
 	}
 }
 
-class admin extends DB {
+class admin extends DB
+{
 
 	// Displays the form for various things
-	function form($type, $id = NULL){
-		switch($type){
+	function form($type, $id = NULL)
+	{
+		switch($type)
+		{
 		case "add":
 			// Make $template object global
 			global $template;
@@ -78,14 +92,16 @@ class admin extends DB {
 			// Start the list
 			echo "<ul>\n";
 			// For every poll question show a row
-			while($poll = $this->fetch_array($query)) {
+			while($poll = $this->fetch_array($query))
+			{
 				$template->printTemplate("admin/pollrow", $poll);
 			}
 			// End the list
 			echo "\n</ul>";
 		break;
 		case "edit":
-			if($id){
+			if($id)
+			{
 				// Fetch the values in the database matching $id
 				$questions = $this->fetch("SELECT * FROM `questions` WHERE `id` = ".$id."");
 				// Initialize the edit-form
@@ -97,7 +113,8 @@ class admin extends DB {
 			}
 		break;
 		case "delete":
-			if($id){
+			if($id)
+			{
 				// Fetch the values in the database matching $id
 				$poll = $this->fetch("SELECT `question` FROM `questions` WHERE `id` = ".$id."");
 				// Initialize the confirmation question
@@ -114,12 +131,14 @@ class admin extends DB {
 	}
 	
 	// Handles the form-input
-	function handle($type, $id = NULL){
-		switch($type){
-
+	function handle($type, $id = NULL)
+	{
+		switch($type)
+		{
 		case "add":
 			// Make sure the form has been submitted with necessary values
-			if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2']){
+			if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2'])
+			{
 				// Add a row to the questions and an empty row to the results
 				$this->query("
 					INSERT INTO `questions`
@@ -137,16 +156,19 @@ class admin extends DB {
 				$this->query("INSERT INTO `results` (a1, a2, a3, a4, a5) VALUES (0, 0, 0, 0, 0)");
 				// Output success
 				echo "<p>Poll was successfully added!</p>";
-			}else{
+			}
+			else
+			{
 				// Output an error
 				echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 			}
 		break;
-
 		case "edit":
-			if($id){
+			if($id)
+			{
 				// Make sure the form has been submitted with necessary values
-				if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2']){
+				if($_POST['submit'] && $_POST['question'] && $_POST['a1'] && $_POST['a2'])
+				{
 					// Update the row
 					$this->query("
 						UPDATE `questions`
@@ -163,16 +185,18 @@ class admin extends DB {
 					");
 					// Output success
 					echo "<p>Poll was successfully edited!</p>";
-				}else{
+				}
+				else
+				{
 					// Output an error
 					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 				}
 			}
 		break;
-
 		case "show":
 			// Make sure the form has been submitted with the necessary ID
-			if($id){
+			if($id)
+			{
 				// Select the poll that previously was shown
 				$oldshow = "SELECT `id` FROM `questions` WHERE `show` = 1";
 				$oldquery = $this->fetch($oldshow);
@@ -189,16 +213,19 @@ class admin extends DB {
 				echo "<p>Poll was successfully set as the main poll!</p>";
 			}
 		break;
-
 		case "delete":
-			if($id){
+			if($id)
+			{
 				// Make sure the button was pressed
-				if($_POST['submit']){
+				if($_POST['submit'])
+				{
 					// Delete the row
 					$this->query("DELETE * FROM `questions` WHERE `id` = ".$id."");
 					// Echo output
 					echo "<p>Poll question (ID <code>$id</code>) was successfully deleted!</p>";
-				}else{
+				}
+				else
+				{
 					// Output an error
 					echo "<div id=\"error\"><p>Form was not submitted!</p></div>";
 				}

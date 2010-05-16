@@ -25,7 +25,8 @@ require(POLL_SYS_DIR."includes/class_template.php");
 			$poll->votePoll($_GET['vote'], $_GET['id']);
 
 				// If the vote was valid, show results
-				if ($poll->handled==1){
+				if ($poll->handled==1)
+				{
 					$poll->displayPoll();
 				}
 
