@@ -7,7 +7,8 @@
 			URL: www.douglasstridsberg.com
 	*/
 
-function secure($string) {
+function secure($string)
+{
 	// Secures $string using various methods
 		// Strip PHP and HTML tags
 		$string = strip_tags($string);
@@ -22,7 +23,8 @@ function secure($string) {
 	return $string;
 }
 
-function incFile($filename) {
+function incFile($filename)
+{
 	// Includes a file based on its extension
 		// Get the extension
 		$filename = strtolower($filename);
@@ -31,11 +33,16 @@ function incFile($filename) {
 		$exts = $exts[$n];
 		
 			// Return different depending on the extension
-			if ($exts=="css"){
+			if($exts=="css")
+			{
 				return "<link rel=\"stylesheet\" type=\"text/css\" media=\"all\" href=\"".$filename."?sid=".md5(time())."\" />";
-			}elseif ($exts=="js"){
+			}
+			elseif($exts=="js")
+			{
 				return "<script type=\"text/javascript\" src=\"".$filename."?sid=".md5(time())."\"></script>";
-			}elseif ($exts=="txt"){
+			}
+			elseif($exts=="txt")
+			{
 				$myFile = $filename;
 				$fopen = fopen($myFile, 'r');
 				$output = fread($fopen, filesize($myFile));
@@ -45,10 +52,12 @@ function incFile($filename) {
 }
 
 // Database class
-class DB {
+class DB
+{
 	
 	// Class constructor - connect to the database
-	function __construct() {
+	function __construct()
+	{
 		global $config;
 		mysql_connect(
 			$config['dbHost'],
@@ -59,10 +68,12 @@ class DB {
 	}
 	
 	// A normal query, for DELETE and UPDATE along with other stuff
-	function query($sql) {
+	function query($sql)
+	{
 		$query = mysql_query($sql) or die(mysql_error());
 		
-		if(POLL_DEBUG) {
+		if(POLL_DEBUG)
+		{
 			echo "<code>$sql</code><br />";
 		}
 		
@@ -70,11 +81,13 @@ class DB {
 	}
 	
 	// Fetch results from SELECT
-	function fetch($sql) {
+	function fetch($sql)
+	{
 		$query = mysql_query($sql) or die(mysql_error());
 		$array = mysql_fetch_array($query);
 		
-		if(POLL_DEBUG) {
+		if(POLL_DEBUG)
+		{
 			echo "<code>$sql</code><br />";
 			echo "<code>".print_r($array)."</code><br />";
 		}
@@ -83,10 +96,12 @@ class DB {
 	}
 	
 	// Only the mysql_fetch_array for times when fetching repeated results from same query
-	function fetch_array($query) {
+	function fetch_array($query)
+	{
 		$array = mysql_fetch_array($query);
 		
-		if(POLL_DEBUG) {
+		if(POLL_DEBUG)
+		{
 			echo "<code>".print_r($array)."</code><br />";
 		}
 		
@@ -94,13 +109,15 @@ class DB {
 	}
 }
 
-class poll extends DB {
+class poll extends DB
+{
 
 	// Define vars
 	var $handled;
 	
 	// Displays the default poll
-	function displayPoll() {
+	function displayPoll()
+	{
 		// Fetch the poll
 		$question = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
 		// Fetch the answers
@@ -115,13 +132,16 @@ class poll extends DB {
 			$question['pcrta5'] = 100*@round($answer['a5']/($answer['a1']+$answer['a2']+$answer['a3']+$answer['a4']+$answer['a5']),3);
 			
 			// If answer exists, display it
-			if($answer['a3']) {
+			if($answer['a3'])
+			{
 				$question['extra3'] = "block";
 			}
-			if($answer['a4']) {
+			if($answer['a4'])
+			{
 				$question['extra4'] = "block";
 			}
-			if($answer['a5']) {
+			if($answer['a5'])
+			{
 				$question['extra5'] = "block";
 			}
 			
@@ -131,18 +151,22 @@ class poll extends DB {
 	}
 	
 	// Displays the voting module
-	function displayVote() {
+	function displayVote()
+	{
 		// Fetch the question that is set to show and grab its answers
 		$answer = $this->fetch("SELECT * FROM `questions` WHERE `show` = 1 LIMIT 1");
 			
 			// If extra answers are available, display
-			if($answer['a3']) {
+			if($answer['a3'])
+			{
 				$answer['extra3'] = "block";
 			}
-			if($answer['a4']) {
+			if($answer['a4'])
+			{
 				$answer['extra4'] = "block";
 			}
-			if($answer['a5']) {
+			if($answer['a5'])
+			{
 				$answer['extra5'] = "block";
 			}
 
@@ -152,35 +176,44 @@ class poll extends DB {
 	}
 	
 	// Processes the vote
-	function votePoll($answer_column, $question_id) {
+	function votePoll($answer_column, $question_id)
+	{
 		// Check for a cookie
-		if ($_COOKIE['voted']==1){
+		if($_COOKIE['voted']==1)
+		{
 			echo "<p>You have already voted within the past 24 hours!</p>";
-		}else{
+		}
+		else
+		{
 		// The cookie is not set, continue
-		
 			// Check for invalid stuff
 			$answer_array = array("a1", "a2", "a3", "a4", "a5");
-			if (!in_array($answer_column, $answer_array)){
+			if(!in_array($answer_column, $answer_array))
+			{
 				echo("<p>Invalid answer!</p>");
-			}else{
+			}
+			else
+			{
 			// The answername is there, continue
-			
 				// Check current number of votes
 				$vote_array = $this->fetch("SELECT `".$answer_column."` FROM `results` WHERE `id` = ".$question_id."");
 				$numvotes = $vote_array[$answer_column];
 				
 					// Do the maths
-					if (!$numvotes){
-					$numvotes = "1";
-					}else{
-					$numvotes = ++$numvotes;
+					if(!$numvotes)
+					{
+						$numvotes = "1";
+					}
+					else
+					{
+						$numvotes = ++$numvotes;
 					}
 				  
 				// Update the database
 				$this->query("UPDATE `results` SET `".$answer_column."` = ".$numvotes." WHERE `id` = ".$question_id."");
 				// Set a cookie for 24hrs if debug is off
-				if(!POLL_DEBUG) {
+				if(!POLL_DEBUG)
+				{
 					setcookie("voted", "1", time()+86400);
 				}
 				// And last but not least, return a handled variable since it was a valid vote

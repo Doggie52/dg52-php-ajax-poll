@@ -15,7 +15,8 @@ require_once(POLL_SYS_DIR."includes/class.php");
 require_once(POLL_ADM_DIR."includes/class_admin.php");
 require_once(POLL_SYS_DIR."includes/class_template.php");
 
-switch($handle){
+switch($handle)
+{
 	case "add":
 		$admin->handle("add");
 	break;
@@ -29,7 +30,8 @@ switch($handle){
 		$admin->handle("delete", $id);
 	break;
 	case "logout":
-		if($session->loseSession()){
+		if($session->loseSession())
+		{
 			echo "<meta http-equiv=\"refresh\" content=\"2;url=".POLL_BASE_URL."admin.php\">";
 			echo "<p>Successfully logged out!</p>";
 		}
