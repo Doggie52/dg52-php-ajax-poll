@@ -54,7 +54,7 @@ class session extends DB
 			
 			// Get username and password, hashed, from the database
 			$adminDetails = $this->fetch("SELECT `username`, `password` FROM `admin`");
-				// Check if these are identical to the input
+				// Check if these are identical to the hashed input
 				if($adminDetails['username'] == md5($_POST['username'])
 					&&
 					$adminDetails['password'] == md5($_POST['password']))
