@@ -1,6 +1,6 @@
 <h1 class="header">dG52 Poll Admin Login</h1>
 
-<form name="login" id="login" method="POST" action="admin.php">
+<form name="login" id="login" method="POST" action="">
 	<table>
 		<tr>
 			<td class="label">Username:</td><td><input type="text" name="username" /></td>
