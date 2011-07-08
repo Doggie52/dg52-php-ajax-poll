@@ -1,4 +1,4 @@
-Copyright 2010 dG52 PHP and AJAX Poll
+Copyright 2011 dG52 PHP and AJAX Poll
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use the files herein except in compliance with the License.
