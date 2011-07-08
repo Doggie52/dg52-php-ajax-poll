@@ -216,8 +216,8 @@ class admin extends DB
 				$newshow = "UPDATE `questions` SET `show` = 1 WHERE `id` = ".$id."";
 				$newquery = $this->query($newshow);
 				
-				// Output success
-				echo "<p>Poll was successfully set as the main poll!</p>";
+				// Redirect back to the poll listings
+				header("Location: ".POLL_BASE_URL."admin/index.php?display=list");
 			}
 		break;
 		case "delete":
