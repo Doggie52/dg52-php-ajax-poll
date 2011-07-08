@@ -44,14 +44,14 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `a4` text,
   `a5` text,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Stores the ID, question, answers and state of visibility. ' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Stores the ID, question, answers and state of visibility.' AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `questions`
 --
 
 INSERT INTO `questions` (`id`, `show`, `question`, `a1`, `a2`, `a3`, `a4`, `a5`) VALUES
-(1, 1, 'Example question?', 'Example answer!', 'Another example answer!', 'Perhaps yet another example answer!', NULL, NULL);
+(1, 1, '[Example] QUESTION', '[Example] ANSWER1', '[Example] ANSWER2', '[Example] ANSWER3', NULL, NULL);
 
 -- --------------------------------------------------------
 
