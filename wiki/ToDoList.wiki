@@ -21,7 +21,7 @@ This page is mostly for developers to share ideas and suggestions for future wor
 == Fixes ==
  * <s>Navigation inside the admin-panel must be intuitive and easy-to-use</s> *PARTIALLY DONE*
   * <s>Support editing of multiple polls - allow admin to select which to edit</s> *DONE*
-  * Generally support multiple polls, making use of the `show` boolean to specify which to show and which to hide
+  * <s>Generally support multiple polls, making use of the `show` boolean to specify which to show and which to hide</s> *DONE*
   * Make use of AJAX inside the admin-panel
  * Allow functions like `displayPoll()` and `displayVote()` to use the `template` class
  * Implement a settings page inside the admin-panel
