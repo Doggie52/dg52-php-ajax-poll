@@ -60,7 +60,7 @@ INSERT INTO `questions` (`id`, `show`, `question`, `a1`, `a2`, `a3`, `a4`, `a5`)
 --
 
 CREATE TABLE IF NOT EXISTS `results` (
-  `id` int(11) NOT NULL AUTO_INCREMENT default '1' COMMENT 'Stores the ID of the question which the results correspond to.',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Stores the ID of the question which the results correspond to.',
   `a1` int(11) default NULL,
   `a2` int(11) default NULL,
   `a3` int(11) default NULL,
