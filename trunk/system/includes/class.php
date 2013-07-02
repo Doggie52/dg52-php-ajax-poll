@@ -28,7 +28,7 @@ function incFile($filename)
 	// Includes a file based on its extension
 		// Get the extension
 		$filename = strtolower($filename);
-		$exts = split("[/\\.]", $filename);
+		$exts = explode('.', $filename);
 		$n = count($exts)-1;
 		$exts = $exts[$n];
 		
